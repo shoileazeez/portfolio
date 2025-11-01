@@ -74,7 +74,7 @@ Before you begin, ensure you have the following installed:
 
 4. **Open your browser**
    
-   Navigate to `http://localhost:5173` to view the portfolio
+   Navigate to `http://localhost:8080` to view the portfolio
 
 ## 📜 Available Scripts
 

@@ -1,73 +1,199 @@
-# Welcome to your Lovable project
+# Duo-Tone Folio
 
-## Project info
+A modern, minimalist portfolio website showcasing the work and experience of Shoile Abdulazeez Adenuga, a Full-Stack Software Engineer and Machine Learning Developer.
 
-**URL**: https://lovable.dev/projects/99b9d23f-061c-4d98-b89a-ce383ca84f63
+![Portfolio Preview](https://lovable.dev/opengraph-image-p98pqg.png)
 
-## How can I edit this code?
+## 🌟 About
 
-There are several ways of editing your application.
+This portfolio website features a clean, duo-tone design that highlights projects, experience, and technical skills. Built with modern web technologies, it provides an elegant and responsive interface to showcase professional work in software engineering and machine learning.
 
-**Use Lovable**
+## ✨ Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/99b9d23f-061c-4d98-b89a-ce383ca84f63) and start prompting.
+- **🎨 Modern Duo-Tone Design**: Clean and minimalist aesthetic with light/dark theme support
+- **📱 Fully Responsive**: Optimized for all device sizes from mobile to desktop
+- **🌓 Dark Mode**: Toggle between light and dark themes with persistent preference
+- **📂 Project Showcase**: Detailed project cards with tags, descriptions, and links
+- **👤 About Page**: Comprehensive professional experience and skills overview
+- **🔗 Social Integration**: Direct links to GitHub and LinkedIn profiles
+- **⚡ Fast Performance**: Built with Vite for lightning-fast load times
+- **♿ Accessible**: Follows web accessibility best practices
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Tech Stack
 
-**Use your preferred IDE**
+### Frontend
+- **React 18.3** - Modern UI library with hooks
+- **TypeScript** - Type-safe JavaScript
+- **Vite 5.4** - Next-generation frontend build tool
+- **React Router DOM** - Client-side routing
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Re-usable component library built with Radix UI
+- **Lucide React** - Beautiful icon library
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### State Management & Data Fetching
+- **TanStack Query** - Powerful data synchronization and caching
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### UI Components & Styling
+- **Radix UI Primitives** - Unstyled, accessible components
+- **class-variance-authority** - Component variant styling
+- **tailwindcss-animate** - Animation utilities
+- **next-themes** - Theme management with system preference detection
 
-Follow these steps:
+### Development Tools
+- **ESLint** - Code linting
+- **TypeScript ESLint** - TypeScript-specific linting rules
+- **PostCSS & Autoprefixer** - CSS processing
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 📋 Prerequisites
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Before you begin, ensure you have the following installed:
+- **Node.js** (v18 or higher) - [Download here](https://nodejs.org/)
+- **npm** or **bun** - Package manager (npm comes with Node.js)
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🛠️ Installation & Setup
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/shoileazeez/duo-tone-folio.git
+   cd duo-tone-folio
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or with bun
+   bun install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   # or with bun
+   bun run dev
+   ```
+
+4. **Open your browser**
+   
+   Navigate to `http://localhost:5173` to view the portfolio
+
+## 📜 Available Scripts
+
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run build:dev    # Build in development mode
+npm run preview      # Preview production build
+npm run lint         # Run ESLint to check code quality
 ```
 
-**Edit a file directly in GitHub**
+## 📁 Project Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+duo-tone-folio/
+├── public/              # Static assets
+│   ├── favicon.ico
+│   ├── placeholder.svg
+│   └── robots.txt
+├── src/
+│   ├── components/      # React components
+│   │   ├── ui/         # shadcn/ui components
+│   │   ├── Footer.tsx
+│   │   ├── Header.tsx
+│   │   ├── ProjectCard.tsx
+│   │   └── ThemeToggle.tsx
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Utility functions
+│   ├── pages/          # Page components
+│   │   ├── About.tsx
+│   │   ├── Index.tsx
+│   │   ├── NotFound.tsx
+│   │   └── ProjectDetail.tsx
+│   ├── App.tsx         # Main app component
+│   ├── App.css         # App-specific styles
+│   ├── index.css       # Global styles
+│   └── main.tsx        # App entry point
+├── index.html          # HTML template
+├── package.json        # Dependencies and scripts
+├── tailwind.config.ts  # Tailwind configuration
+├── tsconfig.json       # TypeScript configuration
+├── vite.config.ts      # Vite configuration
+└── README.md          # This file
+```
 
-**Use GitHub Codespaces**
+## 🎨 Customization
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Updating Projects
 
-## What technologies are used for this project?
+Edit the projects array in `src/pages/Index.tsx` to add or modify your projects:
 
-This project is built with:
+```typescript
+const projects = [
+  {
+    year: "2024",
+    title: "Your Project Title",
+    description: "Project description...",
+    date: "Month Year",
+    duration: "X months",
+    tags: ["Tag1", "Tag2", "Tag3"],
+    link: "/project/project-slug",
+  },
+  // Add more projects...
+];
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Modifying Personal Information
 
-## How can I deploy this project?
+Update your details in:
+- `src/pages/About.tsx` - Professional experience and skills
+- `src/components/Header.tsx` - Name and social links
+- `src/components/Footer.tsx` - Contact information
+- `index.html` - Meta tags and page title
 
-Simply open [Lovable](https://lovable.dev/projects/99b9d23f-061c-4d98-b89a-ce383ca84f63) and click on Share -> Publish.
+### Theme Customization
 
-## Can I connect a custom domain to my Lovable project?
+Modify colors and design tokens in:
+- `tailwind.config.ts` - Tailwind theme configuration
+- `src/index.css` - CSS variables for theme colors
 
-Yes, you can!
+## 🌐 Deployment
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This project can be deployed to various platforms:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Vercel (Recommended)
+1. Push your code to GitHub
+2. Import your repository in Vercel
+3. Vercel will auto-detect Vite and deploy
+
+### Netlify
+1. Build the project: `npm run build`
+2. Deploy the `dist` folder to Netlify
+
+### GitHub Pages
+1. Build the project: `npm run build`
+2. Deploy the `dist` folder to gh-pages branch
+
+### Other Platforms
+The built `dist` folder can be deployed to any static hosting service.
+
+## 👨‍💻 Author
+
+**Shoile Abdulazeez Adenuga**
+- Software Engineer | Full-Stack & ML Developer
+- GitHub: [@shoileazeez](https://github.com/shoileazeez)
+- LinkedIn: [Shoile Abdulazeez](https://linkedin.com/in/shoile-abdulazeez-8143842ab)
+- Email: shoabdulazeez@gmail.com
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- Built with [Lovable](https://lovable.dev)
+- UI components from [shadcn/ui](https://ui.shadcn.com/)
+- Icons from [Lucide](https://lucide.dev/)
+- Styling with [Tailwind CSS](https://tailwindcss.com/)
+
+---
+
+**Note**: This portfolio was initially scaffolded using [Lovable](https://lovable.dev/projects/99b9d23f-061c-4d98-b89a-ce383ca84f63), a platform for rapid React application development.

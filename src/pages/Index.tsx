@@ -10,6 +10,7 @@ const projects = [
     date: "October 2024",
     duration: "3 months",
     tags: ["Python", "Scikit-Learn", "FastAPI", "React", "Machine Learning", "Random Forest"],
+    link: "/project/diabetes-risk-predictor",
   },
   {
     year: "2024",
@@ -18,6 +19,7 @@ const projects = [
     date: "September 2024",
     duration: "2 months",
     tags: ["React", "Next.js", "TypeScript", "API Integration", "Charts", "Tailwind CSS"],
+    link: "/project/crypto-price-tracker",
   },
   {
     year: "2024",
@@ -26,6 +28,7 @@ const projects = [
     date: "June 2024",
     duration: "4 months",
     tags: ["Django", "Django REST Framework", "PostgreSQL", "Redis", "Docker", "REST API"],
+    link: "/project/ecommerce-rest-api",
   },
   {
     year: "2024",
@@ -34,6 +37,7 @@ const projects = [
     date: "May 2024",
     duration: "2 months",
     tags: ["Django", "Django REST Framework", "PyPI", "Geolocation", "Security", "Python"],
+    link: "/project/geoauth-django-plugin",
   },
 ];
 

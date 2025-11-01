@@ -20,7 +20,7 @@ const About = () => {
               
               <div className="space-y-2 mb-8">
                 <p className="text-sm font-medium">
-                  <span className="text-accent">Full-Stack Developer × Machine Learning Engineer</span>
+                  <span className="text-accent">Software Engineer • Full-Stack Developer × Machine Learning Engineer</span>
                 </p>
                 <p className="text-sm text-muted-foreground">
                   B.Eng. Software Engineering (In Progress)
@@ -46,56 +46,178 @@ const About = () => {
 
           <div className="prose prose-neutral dark:prose-invert max-w-none">
             <p className="text-muted-foreground leading-relaxed mb-8">
-              As a passionate software engineer, I'm focused on building intelligent systems that 
-              combine elegant frontend experiences with powerful backend infrastructure and machine 
-              learning capabilities. I've created diabetes prediction systems with ML, real-time crypto 
-              tracking tools, and robust REST APIs that serve real users in production.
+              As a passionate junior software engineer with two years of experience, I'm focused on 
+              building intelligent systems that combine elegant frontend experiences with powerful 
+              backend infrastructure and machine learning capabilities. I've created diabetes prediction 
+              systems with ML, real-time crypto tracking tools, and robust REST APIs that serve real 
+              users in production.
             </p>
 
-            <h3 className="text-xl font-semibold mb-6">Key Technical Achievements</h3>
+            <h3 className="text-xl font-semibold mb-6">Experience</h3>
             
-            <ul className="space-y-4">
-              <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Machine Learning Deployment</strong>: Built diabetes 
-                risk predictor achieving 78.6% accuracy with Random Forest and deployed via FastAPI
-              </li>
-              <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Full-Stack Production</strong>: Developed production 
-                features at Flowframe using Next.js and Django serving real users
-              </li>
-              <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Backend Architecture</strong>: Created production-ready 
-                Django REST APIs with authentication, payments, and PostgreSQL optimization
-              </li>
-              <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Real-Time Applications</strong>: Built crypto tracking 
-                dashboard with live price updates and market analysis using React
-              </li>
-              <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Open Source</strong>: Published GeoAuth Django plugin 
-                on PyPI for geographic authentication
-              </li>
-              <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Database Design</strong>: Designed and optimized 
-                PostgreSQL schemas for performance and scalability
-              </li>
-              <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">ML Model Training</strong>: Built loan eligibility 
-                prediction model achieving 85%+ accuracy with scikit-learn
-              </li>
-              <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">System Integration</strong>: Implemented Slack 
-                integration for real-time error monitoring and alerts
-              </li>
-              <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Data Processing</strong>: Performed feature 
-                engineering and data preprocessing with Pandas and NumPy
-              </li>
-              <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">DevOps</strong>: Containerized applications with 
-                Docker and collaborated using Git workflows
-              </li>
-            </ul>
+            <div className="space-y-8 mb-12">
+              <div>
+                <div className="flex justify-between items-start mb-2">
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground">Full-Stack Developer Intern</h4>
+                    <p className="text-accent">Flowframe</p>
+                  </div>
+                  <span className="text-sm text-muted-foreground">Aug 2024 - Present</span>
+                </div>
+                <p className="text-muted-foreground mb-3">
+                  Building full-stack features from frontend to backend in a production environment. 
+                  Working on real applications with modern tech stack serving actual users.
+                </p>
+                <ul className="space-y-2 mb-3">
+                  <li className="text-muted-foreground leading-relaxed">
+                    Built backend logging system with Slack integration for real-time error monitoring and alerts
+                  </li>
+                  <li className="text-muted-foreground leading-relaxed">
+                    Developed reusable Next.js components following modern design patterns and best practices
+                  </li>
+                  <li className="text-muted-foreground leading-relaxed">
+                    Designed and optimized PostgreSQL database schemas for performance and scalability
+                  </li>
+                  <li className="text-muted-foreground leading-relaxed">
+                    Implemented full-stack features using Next.js and Django in production environment
+                  </li>
+                  <li className="text-muted-foreground leading-relaxed">
+                    Migrated Yjs storage from y-leveldb to y-redis to make live collaboration persistent and production-ready
+                  </li>
+                </ul>
+                <div className="flex flex-wrap gap-2">
+                  {["Next.js", "React", "Django", "PostgreSQL", "Slack API", "Docker", "Git"].map((tech) => (
+                    <span key={tech} className="px-3 py-1 rounded-md text-xs bg-tag-bg text-tag-text">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <div className="flex justify-between items-start mb-2">
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground">Machine Learning Intern</h4>
+                    <p className="text-accent">Bankwise Insights</p>
+                  </div>
+                  <span className="text-sm text-muted-foreground">May 2024 - Jul 2024</span>
+                </div>
+                <p className="text-muted-foreground mb-3">
+                  Developed machine learning models for loan recommendation system in fintech domain, 
+                  working with real financial data and production ML pipelines.
+                </p>
+                <ul className="space-y-2 mb-3">
+                  <li className="text-muted-foreground leading-relaxed">
+                    Built ML model for loan eligibility prediction using Scikit-Learn achieving 85%+ accuracy
+                  </li>
+                  <li className="text-muted-foreground leading-relaxed">
+                    Performed data cleaning, preprocessing, and feature engineering with Pandas and NumPy
+                  </li>
+                  <li className="text-muted-foreground leading-relaxed">
+                    Trained, evaluated, and optimized models using cross-validation and hyperparameter tuning
+                  </li>
+                  <li className="text-muted-foreground leading-relaxed">
+                    Developed FastAPI backend for serving ML predictions in production environment
+                  </li>
+                  <li className="text-muted-foreground leading-relaxed">
+                    Created comprehensive API documentation for integration with frontend teams
+                  </li>
+                </ul>
+                <div className="flex flex-wrap gap-2">
+                  {["Python", "Scikit-Learn", "Pandas", "NumPy", "FastAPI", "SQLite", "ML Pipelines"].map((tech) => (
+                    <span key={tech} className="px-3 py-1 rounded-md text-xs bg-tag-bg text-tag-text">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <div className="flex justify-between items-start mb-2">
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground">Full-Stack Software Engineering Bootcamp</h4>
+                    <p className="text-accent">ALX Africa</p>
+                  </div>
+                  <span className="text-sm text-muted-foreground">Feb 2024 - Jul 2024</span>
+                </div>
+                <p className="text-muted-foreground mb-3">
+                  Intensive 6-month software engineering program covering full-stack development, 
+                  algorithms, and system design. Completed multiple real-world projects and technical challenges.
+                </p>
+                <ul className="space-y-2 mb-3">
+                  <li className="text-muted-foreground leading-relaxed">
+                    Backend development with Django REST Framework and Python for scalable APIs
+                  </li>
+                  <li className="text-muted-foreground leading-relaxed">
+                    Frontend engineering with React, JavaScript, and modern UI/UX principles
+                  </li>
+                  <li className="text-muted-foreground leading-relaxed">
+                    Database design and SQL optimization for PostgreSQL and MySQL
+                  </li>
+                  <li className="text-muted-foreground leading-relaxed">
+                    RESTful API architecture, authentication, and best practices
+                  </li>
+                  <li className="text-muted-foreground leading-relaxed">
+                    Built multiple full-stack projects from scratch including e-commerce and social platforms
+                  </li>
+                </ul>
+                <div className="flex flex-wrap gap-2">
+                  {["Backend Specialization", "Frontend Specialization", "SQL & Databases", "AI for Developers", "System Design"].map((tech) => (
+                    <span key={tech} className="px-3 py-1 rounded-md text-xs bg-tag-bg text-tag-text">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <h3 className="text-xl font-semibold mb-6">Skills</h3>
+            
+            <div className="space-y-6">
+              <div>
+                <h4 className="text-base font-semibold text-foreground mb-3">Machine Learning</h4>
+                <div className="flex flex-wrap gap-2">
+                  {["Scikit-Learn", "Pandas", "NumPy", "Matplotlib", "Feature Engineering", "Model Deployment", "Classification Models", "Data Processing"].map((skill) => (
+                    <span key={skill} className="px-3 py-1 rounded-md text-xs bg-tag-bg text-tag-text">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-base font-semibold text-foreground mb-3">Backend</h4>
+                <div className="flex flex-wrap gap-2">
+                  {["Django", "Django REST Framework", "FastAPI", "Python", "PostgreSQL", "Redis", "REST APIs", "Authentication"].map((skill) => (
+                    <span key={skill} className="px-3 py-1 rounded-md text-xs bg-tag-bg text-tag-text">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-base font-semibold text-foreground mb-3">Frontend</h4>
+                <div className="flex flex-wrap gap-2">
+                  {["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "Responsive Design", "UI/UX"].map((skill) => (
+                    <span key={skill} className="px-3 py-1 rounded-md text-xs bg-tag-bg text-tag-text">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-base font-semibold text-foreground mb-3">Tools & DevOps</h4>
+                <div className="flex flex-wrap gap-2">
+                  {["Git", "Docker", "Slack API", "Linux", "Agile Methodologies"].map((skill) => (
+                    <span key={skill} className="px-3 py-1 rounded-md text-xs bg-tag-bg text-tag-text">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>

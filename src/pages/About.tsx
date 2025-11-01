@@ -12,88 +12,88 @@ const About = () => {
             <div className="flex flex-col items-center text-center">
               <div className="w-32 h-32 rounded-full bg-muted mb-6 overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
-                  alt="Profile"
+                  src="https://avatars.githubusercontent.com/u/170754445?s=400&u=f38310f962ed1a442e43496faaa144419df0e09a&v=4"
+                  alt="Shoile Abdulazeez Adenuga"
                   className="w-full h-full object-cover"
                 />
               </div>
               
               <div className="space-y-2 mb-8">
                 <p className="text-sm font-medium">
-                  <span className="text-accent">Senior Software Engineer</span>
+                  <span className="text-accent">Full-Stack Developer × Machine Learning Engineer</span>
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  MSc in Computer Science
+                  B.Eng. Software Engineering (In Progress)
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Founder, YourStartup
+                  Full-Stack Developer Intern, Flowframe
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Lead Developer (Full Stack), TechCorp
+                  Ex-Machine Learning Intern, Bankwise Insights
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Ex-Software Engineer, BigTech
+                  ALX Software Engineering Graduate
                 </p>
               </div>
               
               <p className="text-muted-foreground leading-relaxed max-w-2xl">
-                With over six years in the software development industry, I have a strong track 
-                record of impactful contributions to web and mobile applications, including 
-                collaborations with leading brands and startups.
+                With over two years in software development, I'm a full-stack engineer and machine learning 
+                developer passionate about building intelligent applications that solve real-world problems. 
+                My expertise spans from training ML models to crafting production-ready APIs and responsive UIs.
               </p>
             </div>
           </div>
 
           <div className="prose prose-neutral dark:prose-invert max-w-none">
             <p className="text-muted-foreground leading-relaxed mb-8">
-              As a passionate software engineer, I drive innovation and excellence in 
-              software development, advocating for best practices and modern technologies. 
-              I've pioneered the development of various platforms and tools that have 
-              impacted thousands of users worldwide.
+              As a passionate software engineer, I'm focused on building intelligent systems that 
+              combine elegant frontend experiences with powerful backend infrastructure and machine 
+              learning capabilities. I've created diabetes prediction systems with ML, real-time crypto 
+              tracking tools, and robust REST APIs that serve real users in production.
             </p>
 
             <h3 className="text-xl font-semibold mb-6">Key Technical Achievements</h3>
             
             <ul className="space-y-4">
               <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Platform Launch</strong>: Built and launched 
-                a SaaS platform serving 10,000+ users worldwide
+                <strong className="text-foreground">Machine Learning Deployment</strong>: Built diabetes 
+                risk predictor achieving 78.6% accuracy with Random Forest and deployed via FastAPI
               </li>
               <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">AI Integration</strong>: Implemented machine 
-                learning models for real-time data processing and analysis
+                <strong className="text-foreground">Full-Stack Production</strong>: Developed production 
+                features at Flowframe using Next.js and Django serving real users
               </li>
               <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Mobile Development</strong>: Developed 
-                cross-platform mobile applications with 500K+ downloads
+                <strong className="text-foreground">Backend Architecture</strong>: Created production-ready 
+                Django REST APIs with authentication, payments, and PostgreSQL optimization
               </li>
               <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">API Architecture</strong>: Designed and 
-                implemented scalable RESTful APIs handling millions of requests daily
+                <strong className="text-foreground">Real-Time Applications</strong>: Built crypto tracking 
+                dashboard with live price updates and market analysis using React
               </li>
               <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Cloud Infrastructure</strong>: Architected 
-                cloud-based solutions on AWS and Azure with 99.9% uptime
+                <strong className="text-foreground">Open Source</strong>: Published GeoAuth Django plugin 
+                on PyPI for geographic authentication
               </li>
               <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Open Source</strong>: Active contributor 
-                to open-source projects with 1000+ GitHub stars
+                <strong className="text-foreground">Database Design</strong>: Designed and optimized 
+                PostgreSQL schemas for performance and scalability
               </li>
               <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Team Leadership</strong>: Led development 
-                teams of 5-10 engineers on complex technical projects
+                <strong className="text-foreground">ML Model Training</strong>: Built loan eligibility 
+                prediction model achieving 85%+ accuracy with scikit-learn
               </li>
               <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Performance Optimization</strong>: Improved 
-                application performance by 300% through code optimization
+                <strong className="text-foreground">System Integration</strong>: Implemented Slack 
+                integration for real-time error monitoring and alerts
               </li>
               <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Security</strong>: Implemented enterprise-grade 
-                security measures and conducted security audits
+                <strong className="text-foreground">Data Processing</strong>: Performed feature 
+                engineering and data preprocessing with Pandas and NumPy
               </li>
               <li className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">DevOps</strong>: Established CI/CD pipelines 
-                and automated deployment processes
+                <strong className="text-foreground">DevOps</strong>: Containerized applications with 
+                Docker and collaborated using Git workflows
               </li>
             </ul>
           </div>

@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
-import { Twitter, Linkedin, Github } from "lucide-react";
+import { Linkedin, Github } from "lucide-react";
 
 export const Header = () => {
   const location = useLocation();
@@ -9,7 +9,7 @@ export const Header = () => {
     <header className="w-full border-b border-border">
       <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="text-xl font-medium hover:opacity-70 transition-opacity">
-          Your Name
+          Shoile Abdulazeez
         </Link>
         
         <nav className="flex items-center gap-6">
@@ -23,17 +23,16 @@ export const Header = () => {
           </Link>
           
           <a
-            href="https://twitter.com"
+            href="https://github.com/shoileazeez"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm hover:text-accent transition-colors flex items-center gap-1"
+            className="text-sm hover:text-accent transition-colors"
           >
-            <Twitter className="h-4 w-4" />
-            <span className="hidden sm:inline">Follow me</span>
+            <Github className="h-4 w-4" />
           </a>
           
           <a
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/shoile-abdulazeez-8143842ab"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm hover:text-accent transition-colors"

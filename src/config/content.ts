@@ -1,6 +1,12 @@
 // Portfolio Content Configuration
 // Edit this file to update your portfolio content
 
+type SystemDesign = {
+  diagram?: string;
+  image?: string;
+  explanation: string;
+};
+
 export const personalInfo = {
   name: "Shoile Abdulazeez Adenuga",
   title: "Full-Stack Developer and AI Enthusiast",
@@ -67,13 +73,14 @@ export const experience = [
     title: "Full-Stack Software Engineering Bootcamp",
     company: "ALX Africa",
     period: "2024 - 2025",
-    description: "Intensive full-stack software engineering program covering backend development (6 months in 2024) and frontend engineering (8 months in 2025), along with algorithms and system design. Completed multiple real-world projects and technical challenges.",
+    description: "Intensive full-stack software engineering program covering backend development (6 months in 2024) and frontend engineering (8 months in 2025), along with algorithms and system design. Completed multiple real-world projects and technical challenges. Additionally completed a 1-month AI for Developers course focused on prompt engineering and leveraging AI tools for development.",
     achievements: [
       "Backend development with Django REST Framework and Python for scalable APIs (6-month specialization)",
       "Frontend engineering with React, JavaScript, and modern UI/UX principles (8-month specialization)",
       "Database design and SQL optimization for PostgreSQL and MySQL",
       "RESTful API architecture, authentication, and best practices",
-      "Built multiple full-stack projects from scratch including e-commerce and social platforms"
+      "Built multiple full-stack projects from scratch including e-commerce and social platforms",
+      "Completed AI for Developers course: learned prompt engineering techniques and how to effectively use AI tools as a developer (1-month course)"
     ],
     technologies: ["Backend Specialization", "Frontend Specialization", "SQL & Databases", "AI for Developers", "System Design"]
   }
@@ -145,7 +152,7 @@ export const projects = [
     F[(Training Data)] -->|Train| G[Model Training]
     G -->|Save| C`,
       explanation: "The system follows a client-server architecture where the FastAPI backend serves the trained ML model. I chose this design because FastAPI provides excellent performance for ML model serving with automatic API documentation. The Scikit-Learn model is pre-trained and loaded into memory for fast inference. Data preprocessing happens on-the-fly to ensure consistent feature engineering between training and prediction. This architecture allows for easy scaling and model updates without affecting the frontend."
-    }
+    } as SystemDesign
   },
   {
     title: "Crypto Price Tracker",
@@ -172,7 +179,7 @@ export const projects = [
     E[User Input] -->|Filter/Search| A
     A -->|Fetch| B`,
       explanation: "I built this as a single-page React application that fetches data from CoinGecko's public API. The architecture uses React's state management for handling real-time updates and local storage for user preferences. I chose this design to avoid the complexity of a backend while still providing real-time data through periodic API polling. Chart.js handles data visualization efficiently. This client-side approach reduces infrastructure costs and provides instant updates to users."
-    }
+    } as SystemDesign
   },
   {
     title: "E-commerce REST API",
@@ -200,7 +207,7 @@ export const projects = [
     F[Admin] -->|Manage| G[Django Admin]
     G -->|CRUD| E`,
       explanation: "The API follows a layered architecture with Django REST Framework at its core. I chose DRF because it provides excellent serialization, authentication, and viewset patterns out of the box. JWT tokens handle stateless authentication, making the API scalable across multiple servers. PostgreSQL ensures ACID compliance for transactional operations like orders and payments. The design separates concerns between authentication, business logic, and data access, making it easy to maintain and extend. Pagination and filtering are built-in to handle large datasets efficiently."
-    }
+    } as SystemDesign
   },
   {
     title: "GeoAuth Django Plugin",
@@ -228,6 +235,6 @@ export const projects = [
     
     H[Admin] -->|Configure| D`,
       explanation: "I designed GeoAuth as a Django middleware plugin that sits between the authentication layer and the application. It intercepts login requests and performs IP-based geolocation lookup before allowing access. I chose middleware architecture because it's non-invasive and works with any Django authentication backend. The plugin is configurable through Django settings, allowing administrators to set rules for allowed/blocked regions. IP geolocation services provide the location data, and a rules engine evaluates whether to allow access. This design makes it easy to integrate into existing Django projects without modifying core authentication code."
-    }
+    } as SystemDesign
   }
 ];

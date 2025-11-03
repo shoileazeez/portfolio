@@ -152,7 +152,15 @@ const ProjectDetail = () => {
               <>
                 <h2 className="text-2xl font-semibold mb-4 mt-12">System Design</h2>
                 <div className="bg-card border border-border rounded-lg p-6 mb-6">
-                  <div ref={mermaidRef} className="flex justify-center overflow-x-auto" />
+                  {project.systemDesign.image ? (
+                    <img 
+                      src={project.systemDesign.image} 
+                      alt="System Design Diagram"
+                      className="w-full h-auto rounded-lg"
+                    />
+                  ) : (
+                    <div ref={mermaidRef} className="flex justify-center overflow-x-auto" />
+                  )}
                 </div>
                 <div className="bg-muted/50 rounded-lg p-6">
                   <h3 className="text-lg font-semibold mb-3">Architecture Explanation</h3>

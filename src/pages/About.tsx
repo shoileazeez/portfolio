@@ -40,8 +40,7 @@ const About = () => {
               >
                 <a
                   href="https://drive.google.com/uc?export=download&id=1WrzSz-HThukbBDBNKB3QkeEQ1RYxe70Z&confirm=t"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  download
                 >
                   <Download className="w-4 h-4" />
                   Download Resume

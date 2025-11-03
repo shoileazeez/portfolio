@@ -51,7 +51,7 @@ export const Header = () => {
           </a>
           
           <a
-            href="https://medium.com/@shoileabdulazeez"
+            href="https://medium.com/@shoabdulazeez"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm hover:text-accent transition-colors"

@@ -1,9 +1,9 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { ContactForm } from "@/components/ContactForm";
 import { personalInfo, education, certifications, experience, skills } from "@/config/content";
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { Download, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -139,7 +139,22 @@ const About = () => {
             </div>
 
             <div className="mt-16 pt-12 border-t border-border">
-              <ContactForm />
+              <div className="bg-card border border-border rounded-2xl p-8 text-center">
+                <div className="flex justify-center mb-4">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <Mail className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Let's Work Together</h3>
+                <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+                  Have a project in mind or want to discuss opportunities? I'm always open to new collaborations.
+                </p>
+                <Button asChild size="lg">
+                  <Link to="/contact">
+                    Get In Touch
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>

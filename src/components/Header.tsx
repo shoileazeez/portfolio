@@ -21,6 +21,15 @@ export const Header = () => {
           >
             About
           </Link>
+
+          <Link
+            to="/contact"
+            className={`text-sm hover:text-accent transition-colors ${
+              location.pathname === "/contact" ? "text-accent" : ""
+            }`}
+          >
+            Contact
+          </Link>
           
           <a
             href="https://github.com/shoileazeez"

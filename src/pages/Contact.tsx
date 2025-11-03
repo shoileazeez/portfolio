@@ -7,7 +7,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="max-w-4xl mx-auto px-6 py-16">
+      <main className="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
         <div className="max-w-2xl mx-auto">
           <div className="mb-8">
             <h1 className="text-4xl font-bold mb-4">Contact Me</h1>

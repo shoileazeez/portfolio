@@ -12,7 +12,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ year, title, description, date, duration, tags, link }: ProjectCardProps) => {
   const content = (
-    <div className="grid grid-cols-[100px_1fr] gap-8 mb-16 group">
+    <div className="grid grid-cols-[100px_1fr] gap-8 mb-16 group transition-all duration-300 hover:translate-x-2">
       <div className="text-muted-foreground font-medium pt-1">{year}</div>
       
       <div>

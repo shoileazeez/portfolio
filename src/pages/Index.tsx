@@ -8,7 +8,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="max-w-4xl mx-auto px-6 py-16">
+      <main className="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
         <div className="mb-12">
           <div className="flex items-baseline gap-4 mb-4">
             <h1 className="text-sm font-medium text-muted-foreground">date</h1>

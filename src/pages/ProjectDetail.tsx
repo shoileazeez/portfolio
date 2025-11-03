@@ -2,6 +2,8 @@ import { useParams, Navigate } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { projects } from "@/config/content";
+import { useEffect, useRef } from "react";
+import mermaid from "mermaid";
 
 // Create a lookup object for projects by slug
 const projectsData = projects.reduce((acc, project) => {
@@ -11,6 +13,7 @@ const projectsData = projects.reduce((acc, project) => {
 
 const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
+  const mermaidRef = useRef<HTMLDivElement>(null);
   
   if (!slug || !projectsData[slug]) {
     return <Navigate to="/" replace />;
@@ -18,12 +21,52 @@ const ProjectDetail = () => {
 
   const project = projectsData[slug];
 
+  useEffect(() => {
+    const loadMermaid = async () => {
+      if (mermaidRef.current && project.systemDesign?.diagram) {
+        mermaid.initialize({ 
+          startOnLoad: true,
+          theme: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
+          securityLevel: 'loose',
+        });
+        mermaidRef.current.innerHTML = `<pre class="mermaid">${project.systemDesign.diagram}</pre>`;
+        await mermaid.run({ nodes: mermaidRef.current.querySelectorAll('.mermaid') });
+      }
+    };
+    loadMermaid();
+  }, [project.systemDesign]);
+
+  useEffect(() => {
+    const handleThemeChange = async () => {
+      if (mermaidRef.current && project.systemDesign?.diagram) {
+        mermaid.initialize({ 
+          startOnLoad: true,
+          theme: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
+          securityLevel: 'loose',
+        });
+        mermaidRef.current.innerHTML = `<pre class="mermaid">${project.systemDesign.diagram}</pre>`;
+        await mermaid.run({ nodes: mermaidRef.current.querySelectorAll('.mermaid') });
+      }
+    };
+    
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          handleThemeChange();
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, { attributes: true });
+    return () => observer.disconnect();
+  }, [project.systemDesign]);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
       <main className="max-w-4xl mx-auto px-6 py-16">
-        <article className="space-y-8">
+        <article className="space-y-8 animate-fade-in">
           <div>
             <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
             <p className="text-muted-foreground mb-4">
@@ -102,6 +145,21 @@ const ProjectDetail = () => {
                 <p className="text-muted-foreground leading-relaxed">
                   {project.impact}
                 </p>
+              </>
+            )}
+
+            {project.systemDesign && (
+              <>
+                <h2 className="text-2xl font-semibold mb-4 mt-12">System Design</h2>
+                <div className="bg-card border border-border rounded-lg p-6 mb-6">
+                  <div ref={mermaidRef} className="flex justify-center overflow-x-auto" />
+                </div>
+                <div className="bg-muted/50 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold mb-3">Architecture Explanation</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {project.systemDesign.explanation}
+                  </p>
+                </div>
               </>
             )}
           </div>

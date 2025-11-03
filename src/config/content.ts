@@ -132,7 +132,20 @@ export const projects = [
     overview: "A machine learning application that helps users assess their diabetes risk through an intuitive web interface. The system uses a trained classification model to provide accurate risk predictions based on various health metrics.",
     challenge: "Creating an accessible healthcare tool that could provide accurate diabetes risk assessments while maintaining user privacy and ensuring the ML model's predictions were reliable and actionable.",
     solution: "Developed a full-stack application with a Scikit-Learn classification model achieving 85%+ accuracy. Built a FastAPI backend for efficient model serving and created an intuitive frontend for easy health data input. Implemented data preprocessing pipelines to ensure prediction quality.",
-    impact: "Helps users make informed health decisions by providing quick, accurate diabetes risk assessments. The tool has been tested with real health data and demonstrates high prediction accuracy for early risk detection."
+    impact: "Helps users make informed health decisions by providing quick, accurate diabetes risk assessments. The tool has been tested with real health data and demonstrates high prediction accuracy for early risk detection.",
+    systemDesign: {
+      diagram: `graph TB
+    A[User Browser] -->|HTTP Request| B[FastAPI Server]
+    B -->|Load Model| C[Scikit-Learn Model]
+    C -->|Preprocess Data| D[Data Pipeline]
+    D -->|Make Prediction| E[ML Model]
+    E -->|Return Result| B
+    B -->|JSON Response| A
+    
+    F[(Training Data)] -->|Train| G[Model Training]
+    G -->|Save| C`,
+      explanation: "The system follows a client-server architecture where the FastAPI backend serves the trained ML model. I chose this design because FastAPI provides excellent performance for ML model serving with automatic API documentation. The Scikit-Learn model is pre-trained and loaded into memory for fast inference. Data preprocessing happens on-the-fly to ensure consistent feature engineering between training and prediction. This architecture allows for easy scaling and model updates without affecting the frontend."
+    }
   },
   {
     title: "Crypto Price Tracker",
@@ -147,7 +160,19 @@ export const projects = [
     overview: "A comprehensive cryptocurrency tracking platform that provides real-time price updates, historical data visualization, and portfolio management features for crypto enthusiasts and investors.",
     challenge: "Building a responsive application that could handle real-time data updates efficiently while providing smooth chart interactions and maintaining good performance across different devices.",
     solution: "Implemented React with JavaScript for the frontend, integrated CoinGecko API for reliable market data, and used Tailwind CSS for responsive design. Added interactive charts for price visualization and implemented efficient state management for real-time updates.",
-    impact: "Provides crypto traders and enthusiasts with a reliable tool for tracking their investments and making informed decisions based on real-time market data and historical trends."
+    impact: "Provides crypto traders and enthusiasts with a reliable tool for tracking their investments and making informed decisions based on real-time market data and historical trends.",
+    systemDesign: {
+      diagram: `graph LR
+    A[React App] -->|API Request| B[CoinGecko API]
+    B -->|Price Data| A
+    A -->|Display| C[Chart Component]
+    A -->|Store| D[Local State]
+    D -->|Update| C
+    
+    E[User Input] -->|Filter/Search| A
+    A -->|Fetch| B`,
+      explanation: "I built this as a single-page React application that fetches data from CoinGecko's public API. The architecture uses React's state management for handling real-time updates and local storage for user preferences. I chose this design to avoid the complexity of a backend while still providing real-time data through periodic API polling. Chart.js handles data visualization efficiently. This client-side approach reduces infrastructure costs and provides instant updates to users."
+    }
   },
   {
     title: "E-commerce REST API",
@@ -162,7 +187,20 @@ export const projects = [
     overview: "A robust and scalable REST API that powers e-commerce operations including user management, product catalog, shopping cart, and order processing with secure authentication.",
     challenge: "Designing a scalable API architecture that could handle multiple concurrent users, ensure data consistency, and maintain security for sensitive operations like payments and user data.",
     solution: "Built with Django REST Framework following RESTful principles, implemented JWT authentication for secure access, designed normalized PostgreSQL database schema, and created comprehensive API documentation. Included features like pagination, filtering, and search for optimal performance.",
-    impact: "Provides a solid foundation for e-commerce applications with secure, scalable, and well-documented endpoints that can handle real-world commercial operations."
+    impact: "Provides a solid foundation for e-commerce applications with secure, scalable, and well-documented endpoints that can handle real-world commercial operations.",
+    systemDesign: {
+      diagram: `graph TB
+    A[Client App] -->|JWT Token| B[Django REST API]
+    B -->|Auth Check| C[JWT Middleware]
+    C -->|Validated| D[View Layer]
+    D -->|Query| E[(PostgreSQL)]
+    E -->|Data| D
+    D -->|Response| A
+    
+    F[Admin] -->|Manage| G[Django Admin]
+    G -->|CRUD| E`,
+      explanation: "The API follows a layered architecture with Django REST Framework at its core. I chose DRF because it provides excellent serialization, authentication, and viewset patterns out of the box. JWT tokens handle stateless authentication, making the API scalable across multiple servers. PostgreSQL ensures ACID compliance for transactional operations like orders and payments. The design separates concerns between authentication, business logic, and data access, making it easy to maintain and extend. Pagination and filtering are built-in to handle large datasets efficiently."
+    }
   },
   {
     title: "GeoAuth Django Plugin",
@@ -177,6 +215,19 @@ export const projects = [
     overview: "A Django plugin that enhances application security by adding location-based authentication, helping prevent unauthorized access from suspicious locations.",
     challenge: "Creating a flexible authentication plugin that could integrate seamlessly with existing Django projects while providing reliable location verification without compromising user experience.",
     solution: "Developed as a reusable Django plugin with easy integration, implemented geolocation verification using IP-based location services, added configurable security rules for different regions, and created comprehensive documentation for implementation.",
-    impact: "Enhances security for Django applications by adding an additional layer of location-based verification, helping organizations protect against unauthorized access and account compromises."
+    impact: "Enhances security for Django applications by adding an additional layer of location-based verification, helping organizations protect against unauthorized access and account compromises.",
+    systemDesign: {
+      diagram: `graph TB
+    A[User Login] -->|IP Address| B[GeoAuth Middleware]
+    B -->|Lookup| C[IP Geolocation Service]
+    C -->|Location Data| B
+    B -->|Check Rules| D[Security Rules Engine]
+    D -->|Allow/Deny| E[Django Auth]
+    E -->|Success| F[User Session]
+    E -->|Fail| G[Login Denied]
+    
+    H[Admin] -->|Configure| D`,
+      explanation: "I designed GeoAuth as a Django middleware plugin that sits between the authentication layer and the application. It intercepts login requests and performs IP-based geolocation lookup before allowing access. I chose middleware architecture because it's non-invasive and works with any Django authentication backend. The plugin is configurable through Django settings, allowing administrators to set rules for allowed/blocked regions. IP geolocation services provide the location data, and a rules engine evaluates whether to allow access. This design makes it easy to integrate into existing Django projects without modifying core authentication code."
+    }
   }
 ];

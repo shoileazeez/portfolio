@@ -10,7 +10,7 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="max-w-4xl mx-auto px-6 py-16">
+      <main className="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
         <div className="max-w-3xl mx-auto">
           <div className="bg-card border border-border rounded-2xl p-12 mb-12">
             <div className="flex flex-col items-center text-center">

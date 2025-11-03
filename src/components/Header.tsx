@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
-import { Linkedin, Github } from "lucide-react";
+import { Linkedin, Github, BookOpen } from "lucide-react";
 
 export const Header = () => {
   const location = useLocation();
@@ -45,8 +45,19 @@ export const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm hover:text-accent transition-colors"
+            aria-label="LinkedIn Profile"
           >
             <Linkedin className="h-4 w-4" />
+          </a>
+          
+          <a
+            href="https://medium.com/@shoileabdulazeez"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm hover:text-accent transition-colors"
+            aria-label="Medium Blog"
+          >
+            <BookOpen className="h-4 w-4" />
           </a>
           
           <ThemeToggle />

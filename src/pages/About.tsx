@@ -1,6 +1,9 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ContactForm } from "@/components/ContactForm";
 import { personalInfo, education, certifications, experience, skills } from "@/config/content";
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 
 const About = () => {
   return (
@@ -26,9 +29,24 @@ const About = () => {
                 </p>
               </div>
               
-              <p className="text-muted-foreground leading-relaxed max-w-2xl">
+              <p className="text-muted-foreground leading-relaxed max-w-2xl mb-6">
                 {personalInfo.bio}
               </p>
+
+              <Button
+                asChild
+                size="lg"
+                className="gap-2"
+              >
+                <a
+                  href="https://drive.google.com/uc?export=download&id=1WrzSz-HThukbBDBNKB3QkeEQ1RYxe70Z&confirm=t"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Download className="w-4 h-4" />
+                  Download Resume
+                </a>
+              </Button>
             </div>
           </div>
 
@@ -118,6 +136,10 @@ const About = () => {
                   </div>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-16 pt-12 border-t border-border">
+              <ContactForm />
             </div>
           </div>
         </div>

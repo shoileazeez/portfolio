@@ -28,7 +28,7 @@ const About = () => {
               <p className="text-muted-foreground leading-relaxed max-w-2xl">
                 With over two years in software development, I'm a full-stack engineer and machine learning 
                 developer passionate about building intelligent applications that solve real-world problems. 
-                My expertise spans from training ML models to crafting production-ready APIs and responsive UIs.
+                My expertise spans from training ML models and AI systems to crafting production-ready APIs and responsive UIs.
               </p>
             </div>
           </div>
@@ -37,7 +37,7 @@ const About = () => {
             <p className="text-muted-foreground leading-relaxed mb-12">
               As a passionate junior software engineer with two years of experience, I'm focused on 
               building intelligent systems that combine elegant frontend experiences with powerful 
-              backend infrastructure and machine learning capabilities. I've created diabetes prediction 
+              backend infrastructure, AI, and machine learning capabilities. I've created diabetes prediction 
               systems with ML, real-time crypto tracking tools, and robust REST APIs that serve real 
               users in production.
             </p>
@@ -49,13 +49,13 @@ const About = () => {
                 <div className="flex justify-between items-start mb-2">
                   <div>
                     <h4 className="text-lg font-semibold text-foreground">B.Eng. Software Engineering</h4>
-                    <p className="text-accent">Babcock University</p>
+                    <p className="text-accent">AL-Hikmah University</p>
                   </div>
                   <span className="text-sm text-muted-foreground">In Progress</span>
                 </div>
                 <p className="text-muted-foreground">
                   Pursuing a Bachelor's degree in Software Engineering with focus on full-stack development, 
-                  machine learning, and software architecture.
+                  AI, machine learning, and software architecture.
                 </p>
               </div>
             </div>
@@ -66,19 +66,19 @@ const About = () => {
               <div className="p-6 border border-border rounded-lg bg-card hover:shadow-lg transition-shadow">
                 <h4 className="text-base font-semibold text-foreground mb-2">ALX Software Engineering</h4>
                 <p className="text-sm text-muted-foreground mb-3">
-                  Intensive 6-month full-stack software engineering program covering backend, frontend, 
+                  Intensive full-stack software engineering program covering backend (6 months) and frontend (8 months), 
                   databases, and system design.
                 </p>
-                <span className="text-xs text-accent font-medium">2024</span>
+                <span className="text-xs text-accent font-medium">2024-2025</span>
               </div>
               
               <div className="p-6 border border-border rounded-lg bg-card hover:shadow-lg transition-shadow">
                 <h4 className="text-base font-semibold text-foreground mb-2">DataCamp Certifications</h4>
                 <p className="text-sm text-muted-foreground mb-3">
-                  Completed multiple courses in data science, Python programming, machine learning, 
+                  Completed multiple courses in data science, Python programming, SQL, machine learning, 
                   and data analysis.
                 </p>
-                <span className="text-xs text-accent font-medium">2023-2024</span>
+                <span className="text-xs text-accent font-medium">2025</span>
               </div>
             </div>
 
@@ -91,7 +91,7 @@ const About = () => {
                     <h4 className="text-lg font-semibold text-foreground">Full-Stack Developer Intern</h4>
                     <p className="text-accent">Flowframe</p>
                   </div>
-                  <span className="text-sm text-muted-foreground">Aug 2024 - Present</span>
+                  <span className="text-sm text-muted-foreground">Aug 2025 - Present</span>
                 </div>
                 <p className="text-muted-foreground mb-3">
                   Building full-stack features from frontend to backend in a production environment. 
@@ -129,7 +129,7 @@ const About = () => {
                     <h4 className="text-lg font-semibold text-foreground">Machine Learning Intern</h4>
                     <p className="text-accent">Bankwise Insights</p>
                   </div>
-                  <span className="text-sm text-muted-foreground">May 2024 - Jul 2024</span>
+                  <span className="text-sm text-muted-foreground">May 2025 - Jul 2025</span>
                 </div>
                 <p className="text-muted-foreground mb-3">
                   Developed machine learning models for loan recommendation system in fintech domain, 
@@ -167,18 +167,19 @@ const About = () => {
                     <h4 className="text-lg font-semibold text-foreground">Full-Stack Software Engineering Bootcamp</h4>
                     <p className="text-accent">ALX Africa</p>
                   </div>
-                  <span className="text-sm text-muted-foreground">Feb 2024 - Jul 2024</span>
+                  <span className="text-sm text-muted-foreground">2024 - 2025</span>
                 </div>
                 <p className="text-muted-foreground mb-3">
-                  Intensive 6-month software engineering program covering full-stack development, 
-                  algorithms, and system design. Completed multiple real-world projects and technical challenges.
+                  Intensive full-stack software engineering program covering backend development (6 months in 2024) 
+                  and frontend engineering (8 months in 2025), along with algorithms and system design. 
+                  Completed multiple real-world projects and technical challenges.
                 </p>
                 <ul className="space-y-2 mb-3">
                   <li className="text-muted-foreground leading-relaxed">
-                    Backend development with Django REST Framework and Python for scalable APIs
+                    Backend development with Django REST Framework and Python for scalable APIs (6-month specialization)
                   </li>
                   <li className="text-muted-foreground leading-relaxed">
-                    Frontend engineering with React, JavaScript, and modern UI/UX principles
+                    Frontend engineering with React, JavaScript, and modern UI/UX principles (8-month specialization)
                   </li>
                   <li className="text-muted-foreground leading-relaxed">
                     Database design and SQL optimization for PostgreSQL and MySQL

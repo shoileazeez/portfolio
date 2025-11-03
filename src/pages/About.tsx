@@ -18,21 +18,10 @@ const About = () => {
                 />
               </div>
               
-              <div className="space-y-2 mb-8">
-                <p className="text-sm font-medium">
-                  <span className="text-accent">Software Engineer • Full-Stack Developer × Machine Learning Engineer</span>
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  B.Eng. Software Engineering (In Progress)
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Full-Stack Developer Intern, Flowframe
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Ex-Machine Learning Intern, Bankwise Insights
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  ALX Software Engineering Graduate
+              <div className="space-y-3 mb-8">
+                <h2 className="text-2xl font-bold">Shoile Abdulazeez Adenuga</h2>
+                <p className="text-lg font-medium text-accent">
+                  Full-Stack Developer and AI Enthusiast
                 </p>
               </div>
               
@@ -45,13 +34,53 @@ const About = () => {
           </div>
 
           <div className="prose prose-neutral dark:prose-invert max-w-none">
-            <p className="text-muted-foreground leading-relaxed mb-8">
+            <p className="text-muted-foreground leading-relaxed mb-12">
               As a passionate junior software engineer with two years of experience, I'm focused on 
               building intelligent systems that combine elegant frontend experiences with powerful 
               backend infrastructure and machine learning capabilities. I've created diabetes prediction 
               systems with ML, real-time crypto tracking tools, and robust REST APIs that serve real 
               users in production.
             </p>
+
+            <h3 className="text-xl font-semibold mb-6">Education</h3>
+            
+            <div className="space-y-6 mb-12">
+              <div>
+                <div className="flex justify-between items-start mb-2">
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground">B.Eng. Software Engineering</h4>
+                    <p className="text-accent">Babcock University</p>
+                  </div>
+                  <span className="text-sm text-muted-foreground">In Progress</span>
+                </div>
+                <p className="text-muted-foreground">
+                  Pursuing a Bachelor's degree in Software Engineering with focus on full-stack development, 
+                  machine learning, and software architecture.
+                </p>
+              </div>
+            </div>
+
+            <h3 className="text-xl font-semibold mb-6">Certifications</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+              <div className="p-6 border border-border rounded-lg bg-card hover:shadow-lg transition-shadow">
+                <h4 className="text-base font-semibold text-foreground mb-2">ALX Software Engineering</h4>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Intensive 6-month full-stack software engineering program covering backend, frontend, 
+                  databases, and system design.
+                </p>
+                <span className="text-xs text-accent font-medium">2024</span>
+              </div>
+              
+              <div className="p-6 border border-border rounded-lg bg-card hover:shadow-lg transition-shadow">
+                <h4 className="text-base font-semibold text-foreground mb-2">DataCamp Certifications</h4>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Completed multiple courses in data science, Python programming, machine learning, 
+                  and data analysis.
+                </p>
+                <span className="text-xs text-accent font-medium">2023-2024</span>
+              </div>
+            </div>
 
             <h3 className="text-xl font-semibold mb-6">Experience</h3>
             

@@ -18,7 +18,7 @@ const projects = [
     description: "Real-time cryptocurrency tracking dashboard featuring live price updates, historical charts, and portfolio management. Built with React and integrated with cryptocurrency APIs to provide market analysis and advanced filtering capabilities for tracking multiple digital assets.",
     date: "September 2024",
     duration: "2 months",
-    tags: ["React", "Next.js", "TypeScript", "API Integration", "Charts", "Tailwind CSS"],
+    tags: ["React", "JavaScript", "CoinGecko API", "Charts", "Tailwind CSS", "API Integration"],
     link: "/project/crypto-price-tracker",
   },
   {

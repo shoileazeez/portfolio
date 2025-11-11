@@ -139,20 +139,7 @@ export const projects = [
     overview: "A machine learning application that helps users assess their diabetes risk through an intuitive web interface. The system uses a trained classification model to provide accurate risk predictions based on various health metrics.",
     challenge: "Creating an accessible healthcare tool that could provide accurate diabetes risk assessments while maintaining user privacy and ensuring the ML model's predictions were reliable and actionable.",
     solution: "Developed a full-stack application with a Scikit-Learn classification model achieving 85%+ accuracy. Built a FastAPI backend for efficient model serving and created an intuitive frontend for easy health data input. Implemented data preprocessing pipelines to ensure prediction quality.",
-    impact: "Helps users make informed health decisions by providing quick, accurate diabetes risk assessments. The tool has been tested with real health data and demonstrates high prediction accuracy for early risk detection.",
-    systemDesign: {
-      diagram: `graph TB
-    A[User Browser] -->|HTTP Request| B[FastAPI Server]
-    B -->|Load Model| C[Scikit-Learn Model]
-    C -->|Preprocess Data| D[Data Pipeline]
-    D -->|Make Prediction| E[ML Model]
-    E -->|Return Result| B
-    B -->|JSON Response| A
-    
-    F[(Training Data)] -->|Train| G[Model Training]
-    G -->|Save| C`,
-      explanation: "The system follows a client-server architecture where the FastAPI backend serves the trained ML model. I chose this design because FastAPI provides excellent performance for ML model serving with automatic API documentation. The Scikit-Learn model is pre-trained and loaded into memory for fast inference. Data preprocessing happens on-the-fly to ensure consistent feature engineering between training and prediction. This architecture allows for easy scaling and model updates without affecting the frontend."
-    } as SystemDesign
+    impact: "Helps users make informed health decisions by providing quick, accurate diabetes risk assessments. The tool has been tested with real health data and demonstrates high prediction accuracy for early risk detection."
   },
   {
     title: "Crypto Price Tracker",
@@ -167,19 +154,7 @@ export const projects = [
     overview: "A comprehensive cryptocurrency tracking platform that provides real-time price updates, historical data visualization, and portfolio management features for crypto enthusiasts and investors.",
     challenge: "Building a responsive application that could handle real-time data updates efficiently while providing smooth chart interactions and maintaining good performance across different devices.",
     solution: "Implemented React with JavaScript for the frontend, integrated CoinGecko API for reliable market data, and used Tailwind CSS for responsive design. Added interactive charts for price visualization and implemented efficient state management for real-time updates.",
-    impact: "Provides crypto traders and enthusiasts with a reliable tool for tracking their investments and making informed decisions based on real-time market data and historical trends.",
-    systemDesign: {
-      diagram: `graph LR
-    A[React App] -->|API Request| B[CoinGecko API]
-    B -->|Price Data| A
-    A -->|Display| C[Chart Component]
-    A -->|Store| D[Local State]
-    D -->|Update| C
-    
-    E[User Input] -->|Filter/Search| A
-    A -->|Fetch| B`,
-      explanation: "I built this as a single-page React application that fetches data from CoinGecko's public API. The architecture uses React's state management for handling real-time updates and local storage for user preferences. I chose this design to avoid the complexity of a backend while still providing real-time data through periodic API polling. Chart.js handles data visualization efficiently. This client-side approach reduces infrastructure costs and provides instant updates to users."
-    } as SystemDesign
+    impact: "Provides crypto traders and enthusiasts with a reliable tool for tracking their investments and making informed decisions based on real-time market data and historical trends."
   },
   {
     title: "E-commerce REST API",
@@ -194,20 +169,7 @@ export const projects = [
     overview: "A robust and scalable REST API that powers e-commerce operations including user management, product catalog, shopping cart, and order processing with secure authentication.",
     challenge: "Designing a scalable API architecture that could handle multiple concurrent users, ensure data consistency, and maintain security for sensitive operations like payments and user data.",
     solution: "Built with Django REST Framework following RESTful principles, implemented JWT authentication for secure access, designed normalized PostgreSQL database schema, and created comprehensive API documentation. Included features like pagination, filtering, and search for optimal performance.",
-    impact: "Provides a solid foundation for e-commerce applications with secure, scalable, and well-documented endpoints that can handle real-world commercial operations.",
-    systemDesign: {
-      diagram: `graph TB
-    A[Client App] -->|JWT Token| B[Django REST API]
-    B -->|Auth Check| C[JWT Middleware]
-    C -->|Validated| D[View Layer]
-    D -->|Query| E[(PostgreSQL)]
-    E -->|Data| D
-    D -->|Response| A
-    
-    F[Admin] -->|Manage| G[Django Admin]
-    G -->|CRUD| E`,
-      explanation: "The API follows a layered architecture with Django REST Framework at its core. I chose DRF because it provides excellent serialization, authentication, and viewset patterns out of the box. JWT tokens handle stateless authentication, making the API scalable across multiple servers. PostgreSQL ensures ACID compliance for transactional operations like orders and payments. The design separates concerns between authentication, business logic, and data access, making it easy to maintain and extend. Pagination and filtering are built-in to handle large datasets efficiently."
-    } as SystemDesign
+    impact: "Provides a solid foundation for e-commerce applications with secure, scalable, and well-documented endpoints that can handle real-world commercial operations."
   },
   {
     title: "GeoAuth Django Plugin",
@@ -222,19 +184,210 @@ export const projects = [
     overview: "A Django plugin that enhances application security by adding location-based authentication, helping prevent unauthorized access from suspicious locations.",
     challenge: "Creating a flexible authentication plugin that could integrate seamlessly with existing Django projects while providing reliable location verification without compromising user experience.",
     solution: "Developed as a reusable Django plugin with easy integration, implemented geolocation verification using IP-based location services, added configurable security rules for different regions, and created comprehensive documentation for implementation.",
-    impact: "Enhances security for Django applications by adding an additional layer of location-based verification, helping organizations protect against unauthorized access and account compromises.",
-    systemDesign: {
-      diagram: `graph TB
-    A[User Login] -->|IP Address| B[GeoAuth Middleware]
-    B -->|Lookup| C[IP Geolocation Service]
-    C -->|Location Data| B
-    B -->|Check Rules| D[Security Rules Engine]
-    D -->|Allow/Deny| E[Django Auth]
-    E -->|Success| F[User Session]
-    E -->|Fail| G[Login Denied]
-    
-    H[Admin] -->|Configure| D`,
-      explanation: "I designed GeoAuth as a Django middleware plugin that sits between the authentication layer and the application. It intercepts login requests and performs IP-based geolocation lookup before allowing access. I chose middleware architecture because it's non-invasive and works with any Django authentication backend. The plugin is configurable through Django settings, allowing administrators to set rules for allowed/blocked regions. IP geolocation services provide the location data, and a rules engine evaluates whether to allow access. This design makes it easy to integrate into existing Django projects without modifying core authentication code."
-    } as SystemDesign
+    impact: "Enhances security for Django applications by adding an additional layer of location-based verification, helping organizations protect against unauthorized access and account compromises."
+  }
+];
+
+export const blogs = [
+  {
+    title: "Building a Machine Learning Pipeline for Healthcare",
+    description: "A comprehensive guide on creating end-to-end ML pipelines for medical prediction systems, from data preprocessing to model deployment.",
+    excerpt: "Learn how I built a production-ready diabetes prediction system using Scikit-Learn, FastAPI, and best practices for healthcare ML applications.",
+    date: "2025-01-15",
+    year: "2025",
+    slug: "ml-pipeline-healthcare",
+    link: "/blog/ml-pipeline-healthcare",
+    tags: ["Machine Learning", "Healthcare", "Python", "FastAPI"],
+    readTime: "8 min read",
+    content: `
+# Building a Machine Learning Pipeline for Healthcare
+
+Creating machine learning systems for healthcare requires careful attention to accuracy, reliability, and user privacy. In this article, I'll share my experience building a diabetes risk prediction system.
+
+## The Challenge
+
+Healthcare ML systems face unique challenges:
+- High accuracy requirements - lives depend on it
+- Data privacy and security concerns
+- Need for explainable predictions
+- Integration with existing healthcare workflows
+
+## The Solution
+
+I built a full-stack ML application with these key components:
+
+### 1. Data Pipeline
+- Implemented robust data validation
+- Created feature engineering pipelines
+- Ensured consistent preprocessing between training and inference
+
+### 2. Model Development
+- Trained multiple classification models
+- Achieved 85%+ accuracy with Scikit-Learn
+- Implemented cross-validation for reliability
+
+### 3. API Development
+- Built FastAPI backend for model serving
+- Added comprehensive error handling
+- Created clear API documentation
+
+### 4. Deployment
+- Containerized with Docker
+- Implemented monitoring and logging
+- Set up CI/CD pipelines
+
+## Key Learnings
+
+- Start with clean, validated data
+- Focus on model interpretability
+- Build comprehensive testing
+- Monitor model performance in production
+
+## Impact
+
+The system helps users make informed health decisions through quick, accurate risk assessments based on their health metrics.
+    `
+  },
+  {
+    title: "Full-Stack Development: From Backend to Frontend",
+    description: "My journey learning full-stack development through ALX's intensive bootcamp, covering both backend and frontend specializations.",
+    excerpt: "Insights from completing 6 months of backend development and 8 months of frontend engineering in ALX's comprehensive program.",
+    date: "2025-02-01",
+    year: "2025",
+    slug: "fullstack-journey-alx",
+    link: "/blog/fullstack-journey-alx",
+    tags: ["Full-Stack", "Career", "Learning", "Web Development"],
+    readTime: "6 min read",
+    content: `
+# Full-Stack Development: From Backend to Frontend
+
+My journey through ALX's intensive software engineering program taught me not just how to code, but how to think like an engineer.
+
+## The Backend Foundation (6 Months)
+
+The first specialization focused on server-side development:
+
+### Key Skills Learned
+- Building REST APIs with Django REST Framework
+- Database design and optimization
+- Authentication and security
+- API architecture and best practices
+
+### Real Projects
+- Built production-ready e-commerce API
+- Implemented secure authentication systems
+- Designed scalable database schemas
+
+## The Frontend Transition (8 Months)
+
+Moving to frontend development opened new perspectives:
+
+### Modern Web Development
+- React and component-based architecture
+- State management patterns
+- Responsive design with Tailwind CSS
+- User experience principles
+
+### Putting It Together
+- Created full-stack applications
+- Integrated frontend with backend APIs
+- Built real-time features
+
+## Key Takeaways
+
+1. **Backend thinking helps frontend** - Understanding server architecture makes you a better frontend developer
+2. **User experience matters** - Beautiful code means nothing if users struggle
+3. **Testing is crucial** - Both frontend and backend need comprehensive testing
+4. **Documentation saves time** - Good docs help your team and future you
+
+## The Result
+
+I can now build complete applications from database design to polished user interfaces, understanding how all pieces fit together.
+    `
+  },
+  {
+    title: "Real-Time Data in React: Building a Crypto Tracker",
+    description: "Technical deep-dive into building a real-time cryptocurrency tracking application with React and external APIs.",
+    excerpt: "How I built a crypto price tracker with live updates, interactive charts, and smooth performance across devices.",
+    date: "2025-02-10",
+    year: "2025",
+    slug: "realtime-crypto-tracker",
+    link: "/blog/realtime-crypto-tracker",
+    tags: ["React", "JavaScript", "API Integration", "Real-Time"],
+    readTime: "7 min read",
+    content: `
+# Real-Time Data in React: Building a Crypto Tracker
+
+Building applications that handle real-time data requires careful consideration of performance, user experience, and efficient state management.
+
+## The Problem
+
+Crypto prices change constantly. Users need:
+- Live price updates
+- Historical data visualization
+- Portfolio tracking
+- Fast, responsive interface
+
+## Architecture Decisions
+
+### API Selection
+I chose CoinGecko API for:
+- Reliable uptime
+- Comprehensive data
+- Generous free tier
+- Good documentation
+
+### State Management
+Implemented efficient state updates:
+- Used React hooks for local state
+- Optimized re-renders with useMemo
+- Implemented debouncing for user inputs
+- Cached API responses
+
+### Real-Time Updates
+- Polling interval optimization
+- Conditional fetching based on visibility
+- Error handling and retry logic
+- Loading states for better UX
+
+## Performance Optimization
+
+### 1. Component Optimization
+- Memoization of expensive calculations
+- Virtual scrolling for large lists
+- Lazy loading of chart components
+
+### 2. API Efficiency
+- Batch requests when possible
+- Cache management
+- Retry logic with exponential backoff
+
+### 3. UI Responsiveness
+- Skeleton loading states
+- Optimistic UI updates
+- Smooth animations with CSS
+
+## Challenges Faced
+
+### Rate Limiting
+Solution: Implemented intelligent caching and request batching
+
+### Chart Performance
+Solution: Used Chart.js with optimized update strategy
+
+### Mobile Responsiveness
+Solution: Tailwind CSS responsive utilities and touch optimization
+
+## Results
+
+A smooth, responsive application that provides real-time crypto data with excellent user experience across all devices.
+
+## Key Learnings
+
+- Balance real-time updates with API rate limits
+- User experience trumps technical perfection
+- Performance optimization is iterative
+- Good error handling is crucial for reliability
+    `
   }
 ];

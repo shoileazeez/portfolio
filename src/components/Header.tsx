@@ -23,6 +23,15 @@ export const Header = () => {
           </Link>
 
           <Link
+            to="/blog"
+            className={`text-sm hover:text-accent transition-colors ${
+              location.pathname === "/blog" || location.pathname.startsWith("/blog/") ? "text-accent" : ""
+            }`}
+          >
+            Blog
+          </Link>
+
+          <Link
             to="/contact"
             className={`text-sm hover:text-accent transition-colors ${
               location.pathname === "/contact" ? "text-accent" : ""

@@ -26,14 +26,7 @@ const Blog = () => {
           </a>
         </div>
 
-        <div className="mb-8">
-          <div className="flex items-baseline gap-4 mb-4">
-            <h2 className="text-sm font-medium text-muted-foreground">date</h2>
-            <h2 className="text-sm font-medium text-muted-foreground">title</h2>
-          </div>
-        </div>
-
-        <div className="space-y-8">
+        <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-1">
           {blogs.map((blog, index) => (
             <BlogCard 
               key={index}
@@ -44,6 +37,7 @@ const Blog = () => {
               readTime={blog.readTime}
               tags={blog.tags}
               link={blog.link}
+              coverImage={blog.coverImage}
             />
           ))}
         </div>

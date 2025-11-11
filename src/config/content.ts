@@ -197,6 +197,7 @@ export const blogs = [
     year: "2025",
     slug: "ml-pipeline-healthcare",
     link: "/blog/ml-pipeline-healthcare",
+    coverImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=600&fit=crop",
     tags: ["Machine Learning", "Healthcare", "Python", "FastAPI"],
     readTime: "8 min read",
     content: `
@@ -256,6 +257,7 @@ The system helps users make informed health decisions through quick, accurate ri
     year: "2025",
     slug: "fullstack-journey-alx",
     link: "/blog/fullstack-journey-alx",
+    coverImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=600&fit=crop",
     tags: ["Full-Stack", "Career", "Learning", "Web Development"],
     readTime: "6 min read",
     content: `
@@ -313,6 +315,7 @@ I can now build complete applications from database design to polished user inte
     year: "2025",
     slug: "realtime-crypto-tracker",
     link: "/blog/realtime-crypto-tracker",
+    coverImage: "https://images.unsplash.com/photo-1622630998477-20aa696ecb05?w=1200&h=600&fit=crop",
     tags: ["React", "JavaScript", "API Integration", "Real-Time"],
     readTime: "7 min read",
     content: `

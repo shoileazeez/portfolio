@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Clock, Calendar } from "lucide-react";
 
 interface BlogCardProps {
@@ -14,8 +14,8 @@ interface BlogCardProps {
 
 export const BlogCard = ({ year, title, description, date, readTime, tags, link, coverImage }: BlogCardProps) => {
   return (
-    <Link to={link}>
-      <article className="group mb-12 overflow-hidden rounded-xl border border-border bg-card hover:shadow-lg transition-all duration-300 hover:border-primary/50">
+    <Link href={link} className="block">
+      <article className="group mb-8 overflow-hidden rounded-lg border border-border bg-card project-hover">
         {coverImage && (
           <div className="relative h-48 overflow-hidden">
             <img 
@@ -24,28 +24,32 @@ export const BlogCard = ({ year, title, description, date, readTime, tags, link,
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-            <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-medium bg-background/90 backdrop-blur-sm border border-border">
+            <span className="absolute top-4 left-4 px-3 py-1 rounded-md text-xs font-medium bg-background/90 backdrop-blur-sm border border-border">
               {year}
             </span>
           </div>
         )}
         
         <div className="p-6">
-          <h2 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors line-clamp-2">
+          <h2 className="text-xl font-bold mb-3 group-hover:text-foreground transition-colors">
             {title}
           </h2>
           
-          <p className="text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+          <p className="text-muted-foreground leading-relaxed mb-4">
             {description}
           </p>
           
           <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-            <div className="flex items-center gap-1.5">
-              <Calendar className="h-3.5 w-3.5" />
-              {date}
+            <div className="flex items-center gap-2">
+              <Calendar className="h-4 w-4" />
+              {new Date(date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+              })}
             </div>
-            <div className="flex items-center gap-1.5">
-              <Clock className="h-3.5 w-3.5" />
+            <div className="flex items-center gap-2">
+              <Clock className="h-4 w-4" />
               {readTime}
             </div>
           </div>
@@ -54,7 +58,7 @@ export const BlogCard = ({ year, title, description, date, readTime, tags, link,
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20"
+                className="px-3 py-1 rounded-md text-xs tag-bg tag-text"
               >
                 {tag}
               </span>

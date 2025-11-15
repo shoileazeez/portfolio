@@ -1,10 +1,12 @@
+"use client"
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Send } from "lucide-react";
@@ -27,7 +29,7 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 export const ContactForm = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
   const {
@@ -39,33 +41,39 @@ export const ContactForm = () => {
     resolver: zodResolver(contactSchema)
   });
 
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-
+    const onSubmit = async (data: ContactFormData) => {
+    setIsLoading(true);
     try {
-      // Encode data for mailto link
-      const subject = encodeURIComponent(`Portfolio Contact from ${data.name}`);
-      const body = encodeURIComponent(
-        `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
-      );
-      
-      // Open email client
-      window.location.href = `mailto:shoileabdulazeez@gmail.com?subject=${subject}&body=${body}`;
-      
-      toast({
-        title: "Opening email client",
-        description: "Your default email application will open with the message.",
+      const response = await fetch('/api/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
-      
-      reset();
+
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "Message sent successfully! Thank you for reaching out.",
+        });
+        reset();
+      } else {
+        const errorData = await response.json();
+        toast({
+          title: "Error",
+          description: errorData.error || 'Failed to send message. Please try again.',
+          variant: "destructive",
+        });
+      }
     } catch (error) {
       toast({
         title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive"
+        description: 'Failed to send message. Please try again.',
+        variant: "destructive",
       });
     } finally {
-      setIsSubmitting(false);
+      setIsLoading(false);
     }
   };
 
@@ -127,12 +135,12 @@ export const ContactForm = () => {
 
         <Button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isLoading}
           className="w-full"
           size="lg"
         >
           <Send className="w-4 h-4 mr-2" />
-          {isSubmitting ? "Sending..." : "Send Message"}
+          {isLoading ? "Sending..." : "Send Message"}
         </Button>
       </form>
     </div>

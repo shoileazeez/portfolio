@@ -6,6 +6,8 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Download, Mail } from "lucide-react";
 import Link from "next/link";
+import { fetchWithCache } from "@/lib/cache";
+import { AboutPageSkeleton } from "@/components/ui/page-skeletons";
 
 interface PersonalInfo {
   name: string;
@@ -55,20 +57,14 @@ export default function AboutPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [personalRes, experienceRes] = await Promise.all([
-          fetch('/api/personal-info'),
-          fetch('/api/experience')
+        // Use cached fetch for API calls with 5 minute cache
+        const [personalData, experienceData] = await Promise.all([
+          fetchWithCache<PersonalInfo>('/api/personal-info', undefined, 5 * 60 * 1000),
+          fetchWithCache<Experience[]>('/api/experience', undefined, 5 * 60 * 1000)
         ]);
 
-        if (personalRes.ok) {
-          const personalData = await personalRes.json();
-          setPersonalInfo(personalData);
-        }
-
-        if (experienceRes.ok) {
-          const experienceData = await experienceRes.json();
-          setExperience(experienceData);
-        }
+        setPersonalInfo(personalData);
+        setExperience(experienceData);
 
         // For now, we'll use static data for education, certifications, and skills
         // until we create those API endpoints
@@ -91,7 +87,7 @@ export default function AboutPage() {
       <div className="min-h-screen bg-background">
         <Header />
         <main className="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
-          <div className="text-center">Loading...</div>
+          <AboutPageSkeleton />
         </main>
         <Footer />
       </div>
@@ -154,8 +150,8 @@ export default function AboutPage() {
           </div>
 
           <div className="space-y-12">
-            <div className="p-6 border border-border rounded-lg bg-card">
-              <p className="text-muted-foreground leading-relaxed text-lg font-medium">
+            <div className="mb-12">
+              <p className="text-muted-foreground leading-relaxed text-base font-medium">
                 {personalInfo.intro}
               </p>
             </div>
@@ -167,7 +163,7 @@ export default function AboutPage() {
             
             <div className="grid gap-6 mb-12">
               {education.map((edu, index) => (
-                <div key={index} className="p-6 border border-border rounded-lg bg-card project-hover">
+                <div key={index} className="pb-6 border-b border-border last:border-b-0">
                   <div className="flex justify-between items-start mb-3">
                     <div>
                       <h4 className="text-lg font-semibold text-foreground">{edu.degree}</h4>
@@ -189,7 +185,7 @@ export default function AboutPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               {certifications.map((cert, index) => (
-                <div key={index} className="p-6 border border-border rounded-lg bg-card project-hover">
+                <div key={index} className="p-6 border border-border rounded-lg bg-card">
                   <div className="flex justify-between items-start mb-2">
                     <h4 className="text-base font-semibold text-foreground">{cert.title}</h4>
                     <span className="text-sm font-medium text-primary bg-primary/10 px-2 py-1 rounded-md">
@@ -208,9 +204,9 @@ export default function AboutPage() {
               Experience
             </h3>
             
-            <div className="grid gap-6 mb-12">
+            <div className="grid gap-8 mb-12">
               {experience.map((exp, index) => (
-                <div key={index} className="p-6 border border-border rounded-lg bg-card project-hover">
+                <div key={index} className="pb-8 border-b border-border last:border-b-0">
                   <div className="flex justify-between items-start mb-4">
                     <div>
                       <h4 className="text-lg font-semibold text-foreground">{exp.title}</h4>
@@ -252,7 +248,7 @@ export default function AboutPage() {
             
             <div className="grid gap-6 md:grid-cols-2">
               {Object.entries(skills).map(([category, skillList]) => (
-                <div key={category} className="p-6 border border-border rounded-lg bg-card project-hover">
+                <div key={category} className="p-6 border border-border rounded-lg bg-card">
                   <h4 className="text-base font-semibold text-foreground mb-4 flex items-center">
                     <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
                     {category}

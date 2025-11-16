@@ -15,13 +15,13 @@ interface BlogCardProps {
 export const BlogCard = ({ year, title, description, date, readTime, tags, link, coverImage }: BlogCardProps) => {
   return (
     <Link href={link} className="block">
-      <article className="group mb-8 overflow-hidden rounded-lg border border-border bg-card project-hover">
+      <article className="mb-8 overflow-hidden rounded-lg border border-border bg-card">
         {coverImage && (
           <div className="relative h-48 overflow-hidden">
             <img 
               src={coverImage} 
               alt={title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
             <span className="absolute top-4 left-4 px-3 py-1 rounded-md text-xs font-medium bg-background/90 backdrop-blur-sm border border-border">
@@ -31,7 +31,7 @@ export const BlogCard = ({ year, title, description, date, readTime, tags, link,
         )}
         
         <div className="p-6">
-          <h2 className="text-xl font-bold mb-3 group-hover:text-foreground transition-colors">
+          <h2 className="text-xl font-bold mb-3">
             {title}
           </h2>
           

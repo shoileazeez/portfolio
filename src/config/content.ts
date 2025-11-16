@@ -10,8 +10,8 @@ type SystemDesign = {
 export const personalInfo = {
   name: "Shoile Abdulazeez Adenuga",
   title: "Full-Stack Developer and AI Enthusiast",
-  bio: "With over two years in software development, I'm a full-stack engineer and machine learning developer passionate about building intelligent applications that solve real-world problems. My expertise spans from training ML models and AI systems to crafting production-ready APIs and responsive UIs.",
-  intro: "As a passionate junior software engineer with two years of experience, I'm focused on building intelligent systems that combine elegant frontend experiences with powerful backend infrastructure, AI, and machine learning capabilities. I've created diabetes prediction systems with ML, real-time crypto tracking tools, and robust REST APIs that serve real users in production.",
+  bio: "With over two years in software development, Abdulazeez is a full-stack engineer and machine learning developer passionate about building intelligent applications that solve real-world problems. His expertise spans from training ML models and AI systems to crafting production-ready APIs and responsive UIs.",
+  intro: "As a passionate junior software engineer with two years of experience, he's focused on building intelligent systems that combine elegant frontend experiences with powerful backend infrastructure, AI, and machine learning capabilities. He's created diabetes prediction systems with ML, real-time crypto tracking tools, and robust REST APIs that serve real users in production.",
   avatar: "https://avatars.githubusercontent.com/u/170754445?s=400&u=f38310f962ed1a442e43496faaa144419df0e09a&v=4",
   github: "https://github.com/Shoilev",
   linkedin: "https://linkedin.com/in/shoile-abdulazeez",
@@ -79,7 +79,7 @@ export const experience = [
       "Frontend engineering with React, JavaScript, and modern UI/UX principles (8-month specialization)",
       "Database design and SQL optimization for PostgreSQL and MySQL",
       "RESTful API architecture, authentication, and best practices",
-      "Built multiple full-stack projects from scratch including e-commerce and social platforms",
+      "Built multiple full-stack projects from scratch including e-commerce and real-time apps",
       "Completed AI for Developers course: learned prompt engineering techniques and how to effectively use AI tools as a developer (1-month course)"
     ],
     technologies: ["Backend Specialization", "Frontend Specialization", "SQL & Databases", "AI for Developers", "System Design"]
@@ -133,9 +133,10 @@ export const projects = [
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
     slug: "diabetes-risk-predictor",
     link: "/project/diabetes-risk-predictor",
+    api_docs: "https://shark-app-6cums.ondigitalocean.app/docs",
     year: "2025",
-    liveDemo: "https://diabetes-predictor-demo.com",
-    github: "https://github.com/Shoilev/diabetes-predictor",
+    liveDemo: "https://diabeticspredictor.project.shoileabdulazeez.tech/",
+    github: "https://github.com/shoileazeez/diabetes-classification-ml",
     overview: "A machine learning application that helps users assess their diabetes risk through an intuitive web interface. The system uses a trained classification model to provide accurate risk predictions based on various health metrics.",
     challenge: "Creating an accessible healthcare tool that could provide accurate diabetes risk assessments while maintaining user privacy and ensuring the ML model's predictions were reliable and actionable.",
     solution: "Developed a full-stack application with a Scikit-Learn classification model achieving 85%+ accuracy. Built a FastAPI backend for efficient model serving and created an intuitive frontend for easy health data input. Implemented data preprocessing pipelines to ensure prediction quality.",
@@ -149,8 +150,8 @@ export const projects = [
     slug: "crypto-price-tracker",
     link: "/project/crypto-price-tracker",
     year: "2025",
-    liveDemo: "https://crypto-tracker-demo.com",
-    github: "https://github.com/Shoilev/crypto-tracker",
+    liveDemo: "https://alx-fe-capstone-project-h2ai.vercel.app/",
+    github: "https://github.com/shoileazeez/alx-fe-capstone-project",
     overview: "A comprehensive cryptocurrency tracking platform that provides real-time price updates, historical data visualization, and portfolio management features for crypto enthusiasts and investors.",
     challenge: "Building a responsive application that could handle real-time data updates efficiently while providing smooth chart interactions and maintaining good performance across different devices.",
     solution: "Implemented React with JavaScript for the frontend, integrated CoinGecko API for reliable market data, and used Tailwind CSS for responsive design. Added interactive charts for price visualization and implemented efficient state management for real-time updates.",
@@ -164,8 +165,8 @@ export const projects = [
     slug: "ecommerce-rest-api",
     link: "/project/ecommerce-rest-api",
     year: "2024",
-    liveDemo: "https://ecommerce-api-demo.com",
-    github: "https://github.com/Shoilev/ecommerce-api",
+    // liveDemo: "https://ecommerce-api-demo.com",
+    github: "https://github.com/shoileazeez/shopsmart-AI",
     overview: "A robust and scalable REST API that powers e-commerce operations including user management, product catalog, shopping cart, and order processing with secure authentication.",
     challenge: "Designing a scalable API architecture that could handle multiple concurrent users, ensure data consistency, and maintain security for sensitive operations like payments and user data.",
     solution: "Built with Django REST Framework following RESTful principles, implemented JWT authentication for secure access, designed normalized PostgreSQL database schema, and created comprehensive API documentation. Included features like pagination, filtering, and search for optimal performance.",
@@ -179,8 +180,10 @@ export const projects = [
     slug: "geoauth-django-plugin",
     link: "/project/geoauth-django-plugin",
     year: "2025",
-    liveDemo: "https://geoauth-demo.com",
-    github: "https://github.com/Shoilev/geoauth-plugin",
+    liveDemo: "https://shoileazeez.github.io/drf_geodata/",
+    github: "https://github.com/shoileazeez/drf_geodata",
+    platform: "PyPI",
+    pypi_url: "https://pypi.org/project/geo-auth/",
     overview: "A Django plugin that enhances application security by adding location-based authentication, helping prevent unauthorized access from suspicious locations.",
     challenge: "Creating a flexible authentication plugin that could integrate seamlessly with existing Django projects while providing reliable location verification without compromising user experience.",
     solution: "Developed as a reusable Django plugin with easy integration, implemented geolocation verification using IP-based location services, added configurable security rules for different regions, and created comprehensive documentation for implementation.",
@@ -201,13 +204,12 @@ export const blogs = [
     tags: ["Machine Learning", "Healthcare", "Python", "FastAPI"],
     readTime: "8 min read",
     content: `
-# Building a Machine Learning Pipeline for Healthcare
-
 Creating machine learning systems for healthcare requires careful attention to accuracy, reliability, and user privacy. In this article, I'll share my experience building a diabetes risk prediction system.
 
 ## The Challenge
 
 Healthcare ML systems face unique challenges:
+
 - High accuracy requirements - lives depend on it
 - Data privacy and security concerns
 - Need for explainable predictions
@@ -218,24 +220,28 @@ Healthcare ML systems face unique challenges:
 I built a full-stack ML application with these key components:
 
 ### 1. Data Pipeline
+
 - Implemented robust data validation
 - Created feature engineering pipelines
 - Ensured consistent preprocessing between training and inference
 
 ### 2. Model Development
+
 - Trained multiple classification models
 - Achieved 85%+ accuracy with Scikit-Learn
 - Implemented cross-validation for reliability
 
 ### 3. API Development
+
 - Built FastAPI backend for model serving
 - Added comprehensive error handling
 - Created clear API documentation
+- UI with React and Tailwind CSS
 
 ### 4. Deployment
+
 - Containerized with Docker
-- Implemented monitoring and logging
-- Set up CI/CD pipelines
+- Vercel for frontend deployment
 
 ## Key Learnings
 
@@ -261,36 +267,38 @@ The system helps users make informed health decisions through quick, accurate ri
     tags: ["Full-Stack", "Career", "Learning", "Web Development"],
     readTime: "6 min read",
     content: `
-# Full-Stack Development: From Backend to Frontend
-
 My journey through ALX's intensive software engineering program taught me not just how to code, but how to think like an engineer.
 
 ## The Backend Foundation (6 Months)
 
-The first specialization focused on server-side development:
+The first specialization focused on server-side development.
 
-### Key Skills Learned
+## Key Skills Learned
+
 - Building REST APIs with Django REST Framework
 - Database design and optimization
 - Authentication and security
 - API architecture and best practices
 
-### Real Projects
+## Real Projects
+
 - Built production-ready e-commerce API
 - Implemented secure authentication systems
 - Designed scalable database schemas
 
 ## The Frontend Transition (8 Months)
 
-Moving to frontend development opened new perspectives:
+Moving to frontend development opened new perspectives.
 
-### Modern Web Development
+## Modern Web Development
+
 - React and component-based architecture
 - State management patterns
 - Responsive design with Tailwind CSS
 - User experience principles
 
-### Putting It Together
+## Putting It Together
+
 - Created full-stack applications
 - Integrated frontend with backend APIs
 - Built real-time features
@@ -319,78 +327,46 @@ I can now build complete applications from database design to polished user inte
     tags: ["React", "JavaScript", "API Integration", "Real-Time"],
     readTime: "7 min read",
     content: `
-# Real-Time Data in React: Building a Crypto Tracker
+Building real-time applications in React can be challenging but rewarding. In this article, I'll share how I built a cryptocurrency price tracker with live updates and interactive features.
 
-Building applications that handle real-time data requires careful consideration of performance, user experience, and efficient state management.
+## The Challenge
 
-## The Problem
+Creating a responsive app that handles real-time data efficiently while providing smooth user interactions across devices.
 
-Crypto prices change constantly. Users need:
-- Live price updates
-- Historical data visualization
-- Portfolio tracking
-- Fast, responsive interface
+## The Solution
 
-## Architecture Decisions
+Key components of the application:
 
-### API Selection
-I chose CoinGecko API for:
-- Reliable uptime
-- Comprehensive data
-- Generous free tier
-- Good documentation
+###  1. React Frontend
 
-### State Management
-Implemented efficient state updates:
-- Used React hooks for local state
-- Optimized re-renders with useMemo
-- Implemented debouncing for user inputs
-- Cached API responses
+- Component-based architecture for reusability
+- State management with hooks
+- Responsive design using Tailwind CSS
 
-### Real-Time Updates
-- Polling interval optimization
-- Conditional fetching based on visibility
-- Error handling and retry logic
-- Loading states for better UX
+###  2. API Integration
 
-## Performance Optimization
+- Used CoinGecko API for reliable market data
+- Implemented efficient data fetching with caching
 
-### 1. Component Optimization
-- Memoization of expensive calculations
-- Virtual scrolling for large lists
-- Lazy loading of chart components
+###  3. Real-Time Updates
 
-### 2. API Efficiency
-- Batch requests when possible
-- Cache management
-- Retry logic with exponential backoff
+- Polling mechanism for live price updates
+- Optimized rendering for performance
 
-### 3. UI Responsiveness
-- Skeleton loading states
-- Optimistic UI updates
-- Smooth animations with CSS
+###  4. Interactive Charts
 
-## Challenges Faced
-
-### Rate Limiting
-Solution: Implemented intelligent caching and request batching
-
-### Chart Performance
-Solution: Used Chart.js with optimized update strategy
-
-### Mobile Responsiveness
-Solution: Tailwind CSS responsive utilities and touch optimization
-
-## Results
-
-A smooth, responsive application that provides real-time crypto data with excellent user experience across all devices.
+- Integrated charting library for price visualization
+- Added user controls for time ranges and indicators
 
 ## Key Learnings
 
-- Balance real-time updates with API rate limits
-- User experience trumps technical perfection
-- Performance optimization is iterative
-- Good error handling is crucial for reliability
+- Efficient state management is crucial for real-time apps
+- Optimize API calls to reduce latency and improve UX
+- Responsive design ensures usability across devices
+
+## The Result
+
+The crypto tracker provides users with a reliable tool to monitor their investments with real-time data and insightful visualizations.
     `
   }
 ];

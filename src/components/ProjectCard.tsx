@@ -12,12 +12,12 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ year, title, description, date, duration, tags, link }: ProjectCardProps) => {
   const content = (
-    <div className="p-6 border border-border rounded-lg bg-card project-hover mb-8 group">
+    <div className="py-6 border-b border-border last:border-b-0 group hover:bg-muted/30 transition-colors">
       <div className="grid grid-cols-[100px_1fr] gap-6">
         <div className="text-muted-foreground font-medium pt-1">{year}</div>
         
         <div>
-          <h2 className="text-xl font-semibold mb-3 group-hover:text-foreground transition-colors">
+          <h2 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
             {title}
           </h2>
           

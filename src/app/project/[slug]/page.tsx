@@ -7,6 +7,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { fetchWithCache } from "@/lib/cache";
+import { ProjectDetailSkeleton } from "@/components/ui/page-skeletons";
 
 interface ProjectDetailPageProps {
   params: Promise<{
@@ -31,6 +33,9 @@ interface Project {
   challenge: string;
   solution: string;
   impact: string;
+  platform?: string;
+  pypi_url?: string;
+  api_docs_url?: string;
 }
 
 export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
@@ -41,15 +46,13 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const response = await fetch(`/api/projects/${id}`);
-        if (response.ok) {
-          const data = await response.json();
-          setProject(data);
-        } else if (response.status === 404) {
-          notFound();
-        }
+        const data = await fetchWithCache<Project>(`/api/projects/${id}`, undefined, 5 * 60 * 1000);
+        setProject(data);
       } catch (error) {
         console.error('Failed to fetch project:', error);
+        if (error.message.includes('404')) {
+          notFound();
+        }
       } finally {
         setLoading(false);
       }
@@ -63,7 +66,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       <div className="min-h-screen bg-background">
         <Header />
         <main className="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
-          <div className="text-center">Loading...</div>
+          <ProjectDetailSkeleton />
         </main>
         <Footer />
       </div>
@@ -111,6 +114,30 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                       </a>
                     </Button>
                   )}
+                  {project.pypi_url && (
+                    <Button size="sm" variant="outline" asChild>
+                      <a href={project.pypi_url} target="_blank" rel="noopener noreferrer">
+                        <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                        PyPI Package
+                      </a>
+                    </Button>
+                  )}
+                  {project.api_docs_url && (
+                    <Button size="sm" variant="secondary" asChild>
+                      <a href={project.api_docs_url} target="_blank" rel="noopener noreferrer">
+                        <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                          <polyline points="14,2 14,8 20,8"/>
+                          <line x1="16" y1="13" x2="8" y2="13"/>
+                          <line x1="16" y1="17" x2="8" y2="17"/>
+                          <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                        API Docs
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </div>
               
@@ -118,6 +145,11 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               <p className="text-lg text-muted-foreground mb-6">{project.description}</p>
 
               <div className="flex flex-wrap gap-2">
+                {project.platform && (
+                  <span className="px-3 py-1 rounded-md text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 font-semibold">
+                    {project.platform} Package
+                  </span>
+                )}
                 {project.tags.map((tag) => (
                   <span
                     key={tag}

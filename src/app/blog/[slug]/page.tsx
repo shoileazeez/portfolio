@@ -6,6 +6,8 @@ import { Footer } from "@/components/Footer";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import { fetchWithCache } from "@/lib/cache";
+import { BlogDetailSkeleton } from "@/components/ui/page-skeletons";
 
 interface BlogDetailPageProps {
   params: Promise<{
@@ -21,9 +23,9 @@ interface Blog {
   date: string;
   year: string;
   slug: string;
-  coverImage: string;
+  cover_image: string;
   tags: string[];
-  readTime: string;
+  read_time: string;
   content: string;
 }
 
@@ -35,15 +37,13 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await fetch(`/api/blogs/${id}`);
-        if (response.ok) {
-          const data = await response.json();
-          setBlog(data);
-        } else if (response.status === 404) {
-          notFound();
-        }
+        const data = await fetchWithCache<Blog>(`/api/blogs/${id}`, undefined, 5 * 60 * 1000);
+        setBlog(data);
       } catch (error) {
         console.error('Failed to fetch blog:', error);
+        if (error.message.includes('404')) {
+          notFound();
+        }
       } finally {
         setLoading(false);
       }
@@ -57,7 +57,7 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
       <div className="min-h-screen bg-background">
         <Header />
         <main className="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
-          <div className="text-center">Loading...</div>
+          <BlogDetailSkeleton />
         </main>
         <Footer />
       </div>
@@ -100,7 +100,7 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4" />
-                  {blog.readTime}
+                  {blog.read_time}
                 </div>
               </div>
 
@@ -116,10 +116,10 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
               </div>
             </header>
 
-            {blog.coverImage && (
+            {blog.cover_image && (
               <div className="mb-8">
                 <img
-                  src={blog.coverImage}
+                  src={blog.cover_image}
                   alt={blog.title}
                   className="w-full h-64 object-cover rounded-lg border border-border"
                 />

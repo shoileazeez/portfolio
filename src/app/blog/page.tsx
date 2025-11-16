@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BlogCard } from "@/components/BlogCard";
+import { fetchWithCache } from "@/lib/cache";
+import { BlogListSkeleton } from "@/components/ui/page-skeletons";
 
 interface Blog {
   id: number;
@@ -14,9 +16,9 @@ interface Blog {
   year: string;
   slug: string;
   link: string;
-  coverImage: string;
+  cover_image: string;
   tags: string[];
-  readTime: string;
+  read_time: string;
 }
 
 export default function BlogPage() {
@@ -26,29 +28,11 @@ export default function BlogPage() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        // Add timeout and better error handling
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-        
-        const response = await fetch('/api/blogs', {
-          signal: controller.signal,
-          cache: 'no-store' // Ensure fresh data
-        });
-        
-        clearTimeout(timeoutId);
-        
-        if (response.ok) {
-          const data = await response.json();
-          setBlogs(data);
-        } else {
-          console.error('Failed to fetch blogs:', response.status, response.statusText);
-        }
+        // Use cached fetch for blogs (3 minute cache)
+        const data = await fetchWithCache<Blog[]>('/api/blogs', undefined, 3 * 60 * 1000);
+        setBlogs(data);
       } catch (error) {
-        if (error.name === 'AbortError') {
-          console.error('Request timeout: Blogs took too long to load');
-        } else {
-          console.error('Failed to fetch blogs:', error);
-        }
+        console.error('Failed to fetch blogs:', error);
       } finally {
         setLoading(false);
       }
@@ -68,28 +52,7 @@ export default function BlogPage() {
               Thoughts on software development, machine learning, and technology.
             </p>
           </div>
-          <div className="space-y-8">
-            {[1, 2].map((i) => (
-              <div key={i} className="animate-pulse">
-                <article className="group mb-8 overflow-hidden rounded-lg border border-border bg-card">
-                  <div className="bg-muted h-48 w-full"></div>
-                  <div className="p-6 space-y-4">
-                    <div className="bg-muted h-6 w-3/4 rounded"></div>
-                    <div className="bg-muted h-4 w-full rounded"></div>
-                    <div className="bg-muted h-4 w-5/6 rounded"></div>
-                    <div className="flex gap-4">
-                      <div className="bg-muted h-4 w-24 rounded"></div>
-                      <div className="bg-muted h-4 w-20 rounded"></div>
-                    </div>
-                    <div className="flex gap-2">
-                      <div className="bg-muted h-6 w-16 rounded"></div>
-                      <div className="bg-muted h-6 w-20 rounded"></div>
-                    </div>
-                  </div>
-                </article>
-              </div>
-            ))}
-          </div>
+          <BlogListSkeleton />
         </main>
         <Footer />
       </div>
@@ -116,10 +79,10 @@ export default function BlogPage() {
               title={blog.title}
               description={blog.description}
               date={blog.date}
-              readTime={blog.readTime}
+              readTime={blog.read_time}
               tags={blog.tags}
               link={`/blog/${blog.id}`}
-              coverImage={blog.coverImage}
+              coverImage={blog.cover_image}
             />
           ))}
         </div>

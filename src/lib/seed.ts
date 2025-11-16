@@ -77,8 +77,8 @@ export async function seedDatabase() {
       // Seed projects
       for (const project of projects) {
         await client.query(`
-          INSERT INTO projects (title, description, tags, image, slug, link, year, live_demo, github, overview, challenge, solution, impact)
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
+          INSERT INTO projects (title, description, tags, image, slug, link, year, live_demo, github, overview, challenge, solution, impact, platform, pypi_url, api_docs_url)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)
         `, [
           project.title,
           project.description,
@@ -92,7 +92,10 @@ export async function seedDatabase() {
           project.overview,
           project.challenge,
           project.solution,
-          project.impact
+          project.impact,
+          project.platform || null,
+          project.pypi_url || null,
+          project.api_docs || null
         ]);
       }
 

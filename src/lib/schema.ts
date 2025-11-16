@@ -84,6 +84,9 @@ export async function initializeDatabase() {
         demo_link VARCHAR(500),
         cover_image VARCHAR(500),
         content TEXT,
+        platform VARCHAR(255),
+        pypi_url VARCHAR(500),
+        api_docs_url VARCHAR(500),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );

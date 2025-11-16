@@ -24,6 +24,9 @@ interface Project {
   challenge: string
   solution: string
   impact: string
+  platform?: string
+  pypi_url?: string
+  api_docs_url?: string
 }
 
 interface ProjectFormProps {
@@ -46,7 +49,10 @@ export function ProjectForm({ project, onSubmit, onCancel }: ProjectFormProps) {
     overview: project?.overview || '',
     challenge: project?.challenge || '',
     solution: project?.solution || '',
-    impact: project?.impact || ''
+    impact: project?.impact || '',
+    platform: project?.platform || '',
+    pypi_url: project?.pypi_url || '',
+    api_docs_url: project?.api_docs_url || ''
   })
   
   const [currentTag, setCurrentTag] = useState('')
@@ -160,6 +166,36 @@ export function ProjectForm({ project, onSubmit, onCancel }: ProjectFormProps) {
                 value={formData.github}
                 onChange={(e) => setFormData(prev => ({ ...prev, github: e.target.value }))}
                 placeholder="https://github.com/user/repo"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="platform">Platform (for plugins/packages)</Label>
+              <Input
+                id="platform"
+                value={formData.platform}
+                onChange={(e) => setFormData(prev => ({ ...prev, platform: e.target.value }))}
+                placeholder="e.g., PyPI, npm, etc."
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="pypi_url">Package URL (PyPI, npm, etc.)</Label>
+              <Input
+                id="pypi_url"
+                value={formData.pypi_url}
+                onChange={(e) => setFormData(prev => ({ ...prev, pypi_url: e.target.value }))}
+                placeholder="https://pypi.org/project/package-name/"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="api_docs_url">API Documentation URL</Label>
+              <Input
+                id="api_docs_url"
+                value={formData.api_docs_url}
+                onChange={(e) => setFormData(prev => ({ ...prev, api_docs_url: e.target.value }))}
+                placeholder="https://api-docs.example.com/"
               />
             </div>
           </div>

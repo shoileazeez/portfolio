@@ -12,7 +12,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ year, title, description, date, duration, tags, link }: ProjectCardProps) => {
   const content = (
-    <div className="py-4 sm:py-6 border-b border-border last:border-b-0 group hover:bg-muted/30 transition-colors">
+    <div className="py-4 sm:py-6 group hover:bg-muted/30 transition-colors">
       <div className="grid grid-cols-1 sm:grid-cols-[100px_1fr] gap-3 sm:gap-6">
         <div className="text-sm sm:text-base text-muted-foreground font-medium sm:pt-1">{year}</div>
         

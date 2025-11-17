@@ -100,13 +100,13 @@ export default function HomePage() {
                 <div className="text-xs uppercase tracking-wider text-muted-foreground font-medium">Year</div>
               </div>
               <div className="text-center sm:col-span-3 sm:text-left">
-                <div className="text-xs uppercase tracking-wider text-muted-foreground font-medium">Project Details</div>
+                <div className="text-xs uppercase tracking-wider text-muted-foreground font-medium">Project Name</div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="space-y-4 sm:space-y-6">
+        <div className="divide-y divide-border">
           {projects.map((project) => (
             <ProjectCard 
               key={project.id} 

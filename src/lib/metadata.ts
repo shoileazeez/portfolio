@@ -19,7 +19,7 @@ async function getPersonalInfoFromAPI() {
   // Fallback to default values if API is not available
   return {
     name: 'Shoile Abdulazeez',
-    title: 'Full-Stack Developer & AI Enthusiast',
+    title: 'Software Engineer | Full-Stack Developer | AI Enthusiast',
     bio: 'Portfolio of Shoile Abdulazeez, a full-stack developer and AI enthusiast specializing in web and API development, machine learning, and intelligent applications.',
     techStack: ['Django', 'FastAPI', 'scikit-learn', 'React', 'Next.js', 'pandas', 'numpy' ],
     avatar: 'https://avatars.githubusercontent.com/u/170754445?s=400&u=f38310f962ed1a442e43496faaa144419df0e09a&v=4',

@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-screen flex flex-col`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -28,7 +28,9 @@ export default function RootLayout({
         >
           <QueryProvider>
             <TooltipProvider>
-              {children}
+              <div className="flex flex-col min-h-screen">
+                {children}
+              </div>
               <Toaster />
               <Sonner />
             </TooltipProvider>

@@ -9,11 +9,11 @@ type SystemDesign = {
 
 export const personalInfo = {
   name: "Shoile Abdulazeez Adenuga",
-  title: "Full-Stack Developer and AI Enthusiast",
+  title: "Software Engineer | Full-Stack Developer | AI Enthusiast",
   bio: "With over two years in software development, Abdulazeez is a full-stack engineer and machine learning developer passionate about building intelligent applications that solve real-world problems. His expertise spans from training ML models and AI systems to crafting production-ready APIs and responsive UIs.",
   intro: "As a passionate junior software engineer with two years of experience, he's focused on building intelligent systems that combine elegant frontend experiences with powerful backend infrastructure, AI, and machine learning capabilities. He's created diabetes prediction systems with ML, real-time crypto tracking tools, and robust REST APIs that serve real users in production.",
   avatar: "https://avatars.githubusercontent.com/u/170754445?s=400&u=f38310f962ed1a442e43496faaa144419df0e09a&v=4",
-  github: "https://github.com/Shoilev",
+  github: "https://github.com/shoileazeez",
   linkedin: "https://linkedin.com/in/shoile-abdulazeez",
   email: "shoileabdulazeez@gmail.com"
 };

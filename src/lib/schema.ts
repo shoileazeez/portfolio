@@ -112,6 +112,17 @@ export async function initializeDatabase() {
     `);
 
     await client.query(`
+      CREATE TABLE IF NOT EXISTS blog_views (
+        id SERIAL PRIMARY KEY,
+        blog_id INTEGER NOT NULL REFERENCES blogs(id) ON DELETE CASCADE,
+        viewer_identifier VARCHAR(255),
+        ip_address VARCHAR(100),
+        user_agent TEXT,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    `);
+
+    await client.query(`
       CREATE TABLE IF NOT EXISTS admin_users (
         id SERIAL PRIMARY KEY,
         email VARCHAR(255) UNIQUE NOT NULL,

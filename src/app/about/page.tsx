@@ -84,37 +84,37 @@ export default function AboutPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background">
+      <>
         <Header />
-        <main className="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
+        <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 animate-fade-in">
           <AboutPageSkeleton />
         </main>
         <Footer />
-      </div>
+      </>
     );
   }
 
   if (!personalInfo) {
     return (
-      <div className="min-h-screen bg-background">
+      <>
         <Header />
-        <main className="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
+        <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 animate-fade-in">
           <div className="text-center">Failed to load personal information</div>
         </main>
         <Footer />
-      </div>
+      </>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <Header />
       
-      <main className="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
+      <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 animate-fade-in">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-card border border-border rounded-2xl p-12 mb-12">
+          <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12 mb-8 sm:mb-12">
             <div className="flex flex-col items-center text-center">
-              <div className="w-32 h-32 rounded-full bg-muted mb-6 overflow-hidden">
+              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-muted mb-4 sm:mb-6 overflow-hidden">
                 <img
                   src={personalInfo.avatar}
                   alt={personalInfo.name}
@@ -122,14 +122,14 @@ export default function AboutPage() {
                 />
               </div>
               
-              <div className="space-y-3 mb-8">
-                <h2 className="text-2xl font-bold text-foreground">{personalInfo.name}</h2>
-                <p className="text-lg font-medium bg-gradient-to-r from-primary/80 to-primary/60 bg-clip-text text-transparent">
+              <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+                <h2 className="text-xl sm:text-2xl font-bold text-foreground">{personalInfo.name}</h2>
+                <p className="text-base sm:text-lg font-medium bg-gradient-to-r from-primary/80 to-primary/60 bg-clip-text text-transparent">
                   {personalInfo.title}
                 </p>
               </div>
               
-              <p className="text-muted-foreground leading-relaxed max-w-2xl mb-6 text-base">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mb-6 px-2 sm:px-0">
                 {personalInfo.bio}
               </p>
 
@@ -241,21 +241,21 @@ export default function AboutPage() {
               ))}
             </div>
 
-            <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6 flex items-center">
               <span className="w-3 h-3 bg-primary rounded-full mr-3"></span>
               Skills
             </h3>
             
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
               {Object.entries(skills).map(([category, skillList]) => (
-                <div key={category} className="p-6 border border-border rounded-lg bg-card">
-                  <h4 className="text-base font-semibold text-foreground mb-4 flex items-center">
+                <div key={category} className="p-4 sm:p-6 border border-border rounded-lg bg-card">
+                  <h4 className="text-sm sm:text-base font-semibold text-foreground mb-3 sm:mb-4 flex items-center">
                     <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
                     {category}
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {skillList.map((skill) => (
-                      <span key={skill} className="px-3 py-1.5 rounded-md text-xs tag-bg tag-text font-medium">
+                      <span key={skill} className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs tag-bg tag-text font-medium">
                         {skill}
                       </span>
                     ))}
@@ -264,18 +264,18 @@ export default function AboutPage() {
               ))}
             </div>
 
-            <div className="mt-16 pt-12 border-t border-border">
-              <div className="bg-card border border-border rounded-2xl p-8 text-center">
+            <div className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-border">
+              <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-6 sm:p-8 text-center">
                 <div className="flex justify-center mb-4">
                   <div className="p-3 bg-primary/10 rounded-full">
-                    <Mail className="w-8 h-8 text-primary" />
+                    <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">Let's Work Together</h3>
-                <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3">Let's Work Together</h3>
+                <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-md mx-auto px-4 sm:px-0">
                   Have a project in mind or want to discuss opportunities? I'm always open to new collaborations.
                 </p>
-                <Button asChild size="lg">
+                <Button asChild size="lg" className="w-full sm:w-auto">
                   <Link href="/contact">
                     Get In Touch
                   </Link>
@@ -287,6 +287,6 @@ export default function AboutPage() {
       </main>
       
       <Footer />
-    </div>
+    </>
   );
 }

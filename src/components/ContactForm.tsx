@@ -78,13 +78,13 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className="bg-card border border-border rounded-2xl p-8">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="p-2 bg-primary/10 rounded-lg">
+    <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-6 sm:p-8">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+        <div className="p-2 bg-primary/10 rounded-lg self-start sm:self-auto">
           <Mail className="w-5 h-5 text-primary" />
         </div>
         <div>
-          <h2 className="text-2xl font-bold">Get In Touch</h2>
+          <h2 className="text-xl sm:text-2xl font-bold">Get In Touch</h2>
           <p className="text-sm text-muted-foreground">
             Have a project in mind? Let's work together
           </p>

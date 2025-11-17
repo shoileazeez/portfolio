@@ -52,35 +52,61 @@ export default function HomePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background">
+      <>
         <Header />
-        <main className="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
-          <div className="mb-12">
-            <div className="flex items-baseline gap-4 mb-4">
-              <h1 className="text-sm font-medium text-muted-foreground">date</h1>
-              <h1 className="text-sm font-medium text-muted-foreground">title</h1>
+        <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 animate-fade-in">
+          <div className="mb-8 sm:mb-12">
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <h1 className="text-2xl sm:text-3xl font-bold">Projects</h1>
+              </div>
+              <p className="text-muted-foreground max-w-2xl">
+                A collection of projects I've built, from web applications to machine learning models and open-source packages.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-border">
+                <div className="text-center">
+                  <div className="text-xs uppercase tracking-wider text-muted-foreground font-medium">Year</div>
+                </div>
+                <div className="text-center sm:col-span-3 sm:text-left">
+                  <div className="text-xs uppercase tracking-wider text-muted-foreground font-medium">Project Name</div>
+                </div>
+              </div>
             </div>
           </div>
           <ProjectListSkeleton />
         </main>
         <Footer />
-      </div>
+      </>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <Header />
       
-      <main className="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
-        <div className="mb-12">
-          <div className="flex items-baseline gap-4 mb-4">
-            <h1 className="text-sm font-medium text-muted-foreground">date</h1>
-            <h1 className="text-sm font-medium text-muted-foreground">title</h1>
+      <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 animate-fade-in">
+        <div className="mb-8 sm:mb-12">
+          <div className="space-y-4 mb-8">
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <h1 className="text-2xl sm:text-3xl font-bold">Projects</h1>
+            </div>
+            <p className="text-muted-foreground max-w-2xl">
+              A collection of projects I've built, from web applications to machine learning models and open-source packages.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-border">
+              <div className="text-center">
+                <div className="text-xs uppercase tracking-wider text-muted-foreground font-medium">Year</div>
+              </div>
+              <div className="text-center sm:col-span-3 sm:text-left">
+                <div className="text-xs uppercase tracking-wider text-muted-foreground font-medium">Project Details</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 sm:space-y-6">
           {projects.map((project) => (
             <ProjectCard 
               key={project.id} 
@@ -97,6 +123,6 @@ export default function HomePage() {
       </main>
       
       <Footer />
-    </div>
+    </>
   );
 }

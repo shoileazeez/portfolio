@@ -12,28 +12,30 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ year, title, description, date, duration, tags, link }: ProjectCardProps) => {
   const content = (
-    <div className="py-6 border-b border-border last:border-b-0 group hover:bg-muted/30 transition-colors">
-      <div className="grid grid-cols-[100px_1fr] gap-6">
-        <div className="text-muted-foreground font-medium pt-1">{year}</div>
+    <div className="py-4 sm:py-6 border-b border-border last:border-b-0 group hover:bg-muted/30 transition-colors">
+      <div className="grid grid-cols-1 sm:grid-cols-[100px_1fr] gap-3 sm:gap-6">
+        <div className="text-sm sm:text-base text-muted-foreground font-medium sm:pt-1">{year}</div>
         
         <div>
-          <h2 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+          <h2 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 group-hover:text-primary transition-colors">
             {title}
           </h2>
           
-          <p className="text-muted-foreground leading-relaxed mb-4">
+          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-3 sm:mb-4">
             {description}
           </p>
           
-          <p className="text-sm text-muted-foreground mb-4">
-            {date} • {duration}
-          </p>
+          {duration && (
+            <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
+              {date} • {duration}
+            </p>
+          )}
           
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 rounded-md text-xs tag-bg tag-text"
+                className="px-2 sm:px-3 py-1 rounded-md text-xs tag-bg tag-text"
               >
                 {tag}
               </span>

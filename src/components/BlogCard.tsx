@@ -10,11 +10,13 @@ interface BlogCardProps {
   tags: string[];
   link: string;
   coverImage?: string;
+  views?: number;
+  onClick?: () => void;
 }
 
-export const BlogCard = ({ year, title, description, date, readTime, tags, link, coverImage }: BlogCardProps) => {
+export const BlogCard = ({ year, title, description, date, readTime, tags, link, coverImage, views = 0, onClick }: BlogCardProps) => {
   return (
-    <Link href={link} className="block">
+    <Link href={link} className="block" onClick={onClick}>
       <article className="mb-8 overflow-hidden rounded-lg border border-border bg-card">
         {coverImage && (
           <div className="relative h-48 overflow-hidden">
@@ -26,6 +28,9 @@ export const BlogCard = ({ year, title, description, date, readTime, tags, link,
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
             <span className="absolute top-4 left-4 px-3 py-1 rounded-md text-xs font-medium bg-background/90 backdrop-blur-sm border border-border">
               {year}
+            </span>
+            <span className="absolute top-4 right-4 px-3 py-1 rounded-md text-xs font-medium bg-background/90 backdrop-blur-sm border border-border">
+              {views} views
             </span>
           </div>
         )}
@@ -51,6 +56,11 @@ export const BlogCard = ({ year, title, description, date, readTime, tags, link,
             <div className="flex items-center gap-2">
               <Clock className="h-4 w-4" />
               {readTime}
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="px-2 py-1 rounded-md text-xs bg-muted text-muted-foreground">
+                {views} views
+              </span>
             </div>
           </div>
           

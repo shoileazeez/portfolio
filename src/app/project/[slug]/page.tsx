@@ -63,13 +63,13 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background">
+      <>
         <Header />
-        <main className="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
+        <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 animate-fade-in">
           <ProjectDetailSkeleton />
         </main>
         <Footer />
-      </div>
+      </>
     );
   }
 
@@ -78,54 +78,54 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <Header />
       
-      <main className="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
+      <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 animate-fade-in">
         <div className="max-w-3xl mx-auto">
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             <Link 
               href="/" 
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              className="inline-flex items-center gap-2 text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Projects
             </Link>
           </div>
 
-          <article className="space-y-8">
-            <div className="mb-8">
-              <div className="flex items-center gap-4 mb-4">
+          <article className="space-y-6 sm:space-y-8">
+            <div className="mb-6 sm:mb-8">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
                 <span className="text-sm text-muted-foreground">{project.year}</span>
-                <div className="flex gap-4 ml-auto">
+                <div className="flex flex-wrap gap-2 sm:gap-4 sm:ml-auto">
                   {project.github && (
-                    <Button variant="outline" size="sm" asChild>
+                    <Button variant="outline" size="sm" asChild className="flex-1 sm:flex-initial">
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github className="w-4 h-4 mr-2" />
-                        GitHub
+                        <span className="hidden xs:inline">GitHub</span>
                       </a>
                     </Button>
                   )}
                   {(project.live_demo || project.demo_link) && (
-                    <Button size="sm" asChild>
+                    <Button size="sm" asChild className="flex-1 sm:flex-initial">
                       <a href={project.live_demo || project.demo_link} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
+                        <span className="hidden xs:inline">Live </span>Demo
                       </a>
                     </Button>
                   )}
                   {project.pypi_url && (
-                    <Button size="sm" variant="outline" asChild>
+                    <Button size="sm" variant="outline" asChild className="flex-1 sm:flex-initial">
                       <a href={project.pypi_url} target="_blank" rel="noopener noreferrer">
                         <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
                         </svg>
-                        PyPI Package
+                        <span className="hidden xs:inline">PyPI</span>
                       </a>
                     </Button>
                   )}
                   {project.api_docs_url && (
-                    <Button size="sm" variant="secondary" asChild>
+                    <Button size="sm" variant="secondary" asChild className="flex-1 sm:flex-initial">
                       <a href={project.api_docs_url} target="_blank" rel="noopener noreferrer">
                         <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -134,15 +134,15 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                           <line x1="16" y1="17" x2="8" y2="17"/>
                           <polyline points="10,9 9,9 8,9"/>
                         </svg>
-                        API Docs
+                        <span className="hidden xs:inline">API </span>Docs
                       </a>
                     </Button>
                   )}
                 </div>
               </div>
               
-              <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
-              <p className="text-lg text-muted-foreground mb-6">{project.description}</p>
+              <h1 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">{project.title}</h1>
+              <p className="text-base sm:text-lg text-muted-foreground mb-4 sm:mb-6">{project.description}</p>
 
               <div className="flex flex-wrap gap-2">
                 {project.platform && (
@@ -217,7 +217,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       </main>
       
       <Footer />
-    </div>
+    </>
   );
 }
 

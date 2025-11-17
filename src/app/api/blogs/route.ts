@@ -8,9 +8,10 @@ export async function GET() {
     try {
       // Select all fields needed for the blog list and edit views
       const result = await client.query(`
-        SELECT id, title, description, excerpt, date, year, slug, cover_image, tags, read_time, content
-        FROM blogs 
-        ORDER BY date DESC
+        SELECT b.id, b.title, b.description, b.excerpt, b.date, b.year, b.slug, b.cover_image, b.tags, b.read_time, b.content,
+               COALESCE((SELECT COUNT(*) FROM blog_views bv WHERE bv.blog_id = b.id), 0) AS views
+        FROM blogs b
+        ORDER BY b.date DESC
         LIMIT 50
       `);
       

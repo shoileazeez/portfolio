@@ -19,7 +19,8 @@ const transformBlogFromDB = (dbBlog: any): Blog => ({
   coverImage: dbBlog.cover_image || '',
   tags: dbBlog.tags || [],
   readTime: dbBlog.read_time || '',
-  content: dbBlog.content || ''
+  content: dbBlog.content || '',
+  views: Number(dbBlog.views || 0)
 })
 
 // Transform frontend format to database format
@@ -46,6 +47,7 @@ interface Blog {
   tags: string[]
   readTime: string
   content: string
+  views?: number
 }
 
 export function BlogManager() {
@@ -127,6 +129,25 @@ export function BlogManager() {
     }
   }
 
+  const handleClearViews = async (id: number) => {
+    if (!confirm('Clear all recorded views for this blog?')) return
+
+    try {
+      const response = await fetch(`/api/blogs/${id}/view`, {
+        method: 'DELETE',
+        credentials: 'same-origin'
+      })
+
+      if (response.ok) {
+        await fetchBlogs()
+      } else {
+        console.error('Failed to clear views')
+      }
+    } catch (error) {
+      console.error('Failed to clear views:', error)
+    }
+  }
+
   if (loading) {
     return <div>Loading...</div>
   }
@@ -165,7 +186,14 @@ export function BlogManager() {
                     {blog.date} • {blog.readTime}
                   </p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 items-center">
+                  <div className="flex items-center gap-2 mr-2">
+                    <Badge variant="outline" className="flex items-center gap-2">
+                      <Eye className="w-4 h-4" />
+                      <span className="text-sm">{blog.views ?? 0}</span>
+                    </Badge>
+                  </div>
+
                   <Button
                     variant="outline"
                     size="sm"
@@ -189,6 +217,15 @@ export function BlogManager() {
                     onClick={() => handleDeleteBlog(blog.id)}
                   >
                     <Trash2 className="w-4 h-4" />
+                  </Button>
+
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => handleClearViews(blog.id)}
+                    title="Clear views"
+                  >
+                    <Trash2 className="w-4 h-4 text-red-500" />
                   </Button>
                 </div>
               </div>
